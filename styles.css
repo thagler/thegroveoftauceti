@@ -22,7 +22,6 @@ body, html {
     text-align: center;
     color: white;
     width: 100%;
-    max-width: 1667px;
     margin: 50px 0 0 auto;
     padding-bottom: 60px; /* Reserve space for footer */
 }
@@ -44,7 +43,20 @@ body, html {
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
     margin: 20px 0 0 0;
-    text-shadow: 2px 2px 2px rgba(46, 23, 26, 1.0);
+    text-shadow:
+        -1px -1px 0 rgba(0, 0, 0, 0.7),
+         1px -1px 0 rgba(0, 0, 0, 0.7),
+        -1px  1px 0 rgba(0, 0, 0, 0.7),
+         1px  1px 0 rgba(0, 0, 0, 0.7);
+}
+
+.title-container .subtitle a {
+    color: #a6cdb3;
+    text-decoration: none;
+}
+
+.title-container .subtitle a:hover {
+    text-decoration: underline;
 }
 
 /* Description container */
@@ -61,7 +73,7 @@ body, html {
     text-shadow: 2px 2px 2px rgba(46, 23, 26, 1.0);
 }
 
-.description-container p:first-of-type {
+.description-container p.first {
     font-weight: bold;
 }
 
