@@ -42,6 +42,7 @@ body, html {
     color: #a6cdb3;
     font-family: 'Roboto', sans-serif;
     font-size: 1.2rem;
+    font-weight: bold;
     margin: 20px 0 0 0;
     text-shadow:
         -1px -1px 0 rgba(0, 0, 0, 0.7),
@@ -129,7 +130,6 @@ footer a:hover {
     }
 
     .title-container .subtitle {
-        font-weight: bold;
         margin-top: 40px
     }
 
