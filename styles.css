@@ -74,8 +74,15 @@ body, html {
     text-shadow: 2px 2px 2px rgba(46, 23, 26, 1.0);
 }
 
-.description-container p.first {
+.description-container p:first-of-type {
+    font-size: 1.3em;
+    font-variant: small-caps;
+    font-weight: lighter;
+}
+.description-container p:last-of-type {
+    color: #a6cdb3;
     font-weight: bold;
+    padding-top: 10px;
 }
 
 /* Sub-content */
