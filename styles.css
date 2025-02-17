@@ -81,7 +81,7 @@ body, html {
 }
 .description-container p:last-of-type {
     color: #a6cdb3;
-    font-weight: bold;
+    font-size: 1.2em;
     padding-top: 10px;
 }
 
