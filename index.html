@@ -1,60 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Grove of Tau Ceti</title>
+  <style>
+    :root {
+      --bg-color: #0c0c0c;
+      --text-color: #e6e6e6;
+      --accent-color: #3b9eea;
+      --max-width: 960px;
+    }
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MV0XHHFSP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-8MV0XHHFSP');
-    </script>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Grove of Tau Ceti by Tobby Hagler</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
 
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="The Grove of Tau Ceti - A Novel by Tobby Hagler">
-    <meta name="description" content="Nearing the end of her eight-month voyage, the ESS Demeter and her crew face an ancient threat hidden in the roots of her circuits. Discover The Grove of Tau Ceti, a novel by Tobby Hagler.">
-    <meta name="keywords" content="science fiction, sci-fi novel, Tobby Hagler, ESS Demeter, space survival, interstellar, The Grove of Tau Ceti, Druid, Merion, telepathy, Violet Sandoval, Rowan Forsythe, Hawthorne">
-    <meta name="author" content="Tobby Hagler">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#2e171a">
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      background: #1a1a1a;
+    }
 
-    <!-- Open Graph Metadata -->
-    <meta property="og:title" content="The Grove of Tau Ceti by Tobby Hagler">
-    <meta property="og:description" content="Demeter is dying, and she’s not alone.">
-    <meta property="og:image" content="https://www.thegroveoftauceti.com/preview-image.png">
-    <meta property="og:url" content="https://www.thegroveoftauceti.com">
-    <meta property="og:type" content="website">
+    header img.logo {
+      max-width: 260px;
+      width: 100%;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeIn 1.2s ease-in-out forwards;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      border: 1px solid var(--accent-color);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    nav a:hover {
+      background: var(--accent-color);
+      color: #000;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 3rem auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      opacity: 0;
+      animation: fadeIn 1.6s ease-in-out 0.4s forwards;
+    }
+
+    .cover-img {
+      flex: 1 1 300px;
+      max-width: 300px;
+    }
+
+    .cover-img img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      border: 1px solid #444;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    .content {
+      flex: 2 1 400px;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="background">
-        <div class="content-container">
-            <div class="title-container">
-                <h1>The Grove of Tau Ceti</h1>
-                <p class="subtitle">A debut novel by <a href="bio.html">Tobby Hagler</a></p>
-            </div>
-            <div class="description-container">
-                <p class="first"><em>Demeter's</em> not herself anymore.</p>
-                <p>Once the pride of humanity’s interstellar fleet, the ESS Demeter is on a final voyage to Tau Ceti, where the promise of a new alliance awaits. But something stirs deep within the ship’s rootwork, hidden and ancient, unfolding.</p>
-                <p>When psychic interference from a nearby alien moon plunges Demeter into strange silence, an unsettling truth emerges: the ship’s organic systems may no longer be under their control.</p>
-                <p>A telepathic technician haunted by her past must reawaken her abilities to help save Demeter. With the aid of a fellow Druid, a disgraced engineer, and a sentient sapling, the crew fights for survival against an unknown intelligence bent on reshaping them.</p>
-                <p class="last">With time running out, the remaining crew face an impossible choice: reclaim their home or risk losing the galaxy.</p>
-            </div>
-            <div class="sub-content">
-                <p class="release-info">Coming July 25, 2025</p>
-            </div>
-        </div>
+  <header>
+    <img src="grove-white.png" alt="The Grove of Tau Ceti" class="logo" />
+    <p>A debut novel by Tobby Hagler — Available July 25, 2025</p>
+    <nav>
+      <a href="#order">Order</a>
+      <a href="#subscribe">Subscribe</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="cover-img">
+      <img src="front-cover.jpg" alt="The Grove of Tau Ceti front cover" />
     </div>
-    <footer>
-        <p>&copy; 2025 <a href="bio.html">Tobby Hagler</a>. All rights reserved. | <a href="#contact">Contact</a></p>
-    </footer>
-    <script src="script.js"></script>
+    <div class="content">
+      <h2>About the Book</h2>
+      <p>
+        The ESS Demeter, once the pride of humanity’s interstellar fleet, is on a final voyage to Tau Ceti and the promise of a new alliance. But when the ship’s organic systems begin to behave unpredictably—a reaction to psychic interference from a mysterious alien moon—the crew realizes something ancient and alive has taken root aboard.
+      </p>
+      <p>
+        Their only hope lies with a telepathic technician haunted by her past, who must reawaken her suppressed abilities. In alliance with a fellow Druid, a disgraced engineer, and a sentient sapling, she faces an impossible choice: save Demeter and all aboard—or risk unleashing a force that could reshape the galaxy.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Tobby Hagler. All rights reserved.
+  </footer>
 </body>
 </html>
