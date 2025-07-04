@@ -175,7 +175,7 @@
     <p>A debut novel by Tobby Hagler — Available July 25, 2025</p>
     <nav>
       <a data-modal="order">Order</a>
-      <a data-modal="subscribe">Subscribe</a>
+      <a data-modal-url="https://eepurl.com/jipUAA">Subscribe</a>
       <a data-modal="contact">Contact</a>
     </nav>
   </header>
@@ -213,16 +213,8 @@
       body.innerHTML = '';
 
       if (typeof type === 'object' && type.url) {
-        fetch(type.url)
-          .then(res => res.text())
-          .then(html => {
-            body.innerHTML = html;
-            modal.style.display = 'flex';
-          })
-          .catch(() => {
-            body.innerHTML = '<p style="color:red;">Failed to load content.</p>';
-            modal.style.display = 'flex';
-          });
+        body.innerHTML = `<iframe src="${type.url}" style="width:100%; height:80vh; border:none;" loading="lazy" title="Embedded Form"></iframe>`;
+        modal.style.display = 'flex';
       } else {
         if (type === 'cover') {
           body.innerHTML = '<img src="front-cover.jpg" alt="Book Cover Full Size">';
@@ -242,6 +234,12 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-modal-url]').forEach(el => {
+        el.addEventListener('click', () => {
+          const url = el.getAttribute('data-modal-url');
+          openModal({ url });
+        });
+      });
       document.querySelectorAll('[data-modal]').forEach(el => {
         el.addEventListener('click', () => {
           const value = el.getAttribute('data-modal');
