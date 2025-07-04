@@ -90,6 +90,15 @@ main {
   flex: 2 1 400px;
 }
 
+.content h2 {
+  margin-bottom: 1rem;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}
+
 @keyframes fadeIn {
   to {
     opacity: 1;
