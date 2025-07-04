@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Grove of Tau Ceti</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <img src="grove-white.png" alt="The Grove of Tau Ceti" class="logo" />
+    <p>A debut novel by Tobby Hagler — Available July 25, 2025</p>
+    <nav>
+      <a data-modal="order">Order</a>
+      <a data-modal-url="https://eepurl.com/jipUAA">Subscribe</a>
+      <a data-modal="contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="content" style="text-align: center;">
+      <h2>Thank you for subscribing!</h2>
+      <p>
+        <a href="index.html">Back to the homepage.</a>
+      </p>
+    </div>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content" id="modal-content">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Tobby Hagler. All rights reserved.
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
