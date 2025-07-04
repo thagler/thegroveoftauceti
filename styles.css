@@ -122,6 +122,7 @@ main {
   background: #1a1a1a;
   padding: 2rem;
   max-width: 90%;
+  min-width: 33vw;
   max-height: 90vh;
   overflow-y: auto;
   color: var(--text-color);
