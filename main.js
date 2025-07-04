@@ -1,6 +1,7 @@
 function openModal(type) {
   const modal = document.getElementById('modal');
   const body = document.getElementById('modal-body');
+  document.body.classList.add("modal-open");
   body.innerHTML = '';
 
   if (typeof type === 'object' && type.url) {
@@ -21,6 +22,7 @@ function openModal(type) {
 }
 
 function closeModal() {
+  document.body.classList.remove("modal-open");
   document.getElementById('modal').style.display = 'none';
 }
 

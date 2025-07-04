@@ -12,10 +12,15 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 200;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
+}
+
+h1, h2, h3, nav, .logo-text {
+  font-family: 'Orbitron', sans-serif;
 }
 
 header {
@@ -132,11 +137,39 @@ main {
 }
 
 .modal-content img {
+  box-sizing: border-box;
   max-width: 100%;
   height: auto;
   display: block;
   margin: 0 auto;
 }
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.author-bio {
+  background: #1a1a1a;
+  padding: 3rem 1rem;
+  color: var(--text-color);
+}
+
+.bio-content {
+  max-width: calc(var(--max-width) * 2 / 3);
+  margin: 0 auto;
+}
+
+.bio-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #999;
+}
+
+.bio-content p {
+  line-height: 1.7;
+  color: #999;
+}
+
 
 .close-btn {
   position: absolute;
