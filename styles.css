@@ -223,4 +223,15 @@ footer {
     flex-direction: column;
     align-items: center;
   }
+
+  nav {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  nav a,
+  .button-like {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
 }
