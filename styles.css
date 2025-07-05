@@ -179,6 +179,14 @@ body.modal-open {
   color: #999;
 }
 
+.cover-caption {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #aaa;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
 
 .close-btn {
   position: absolute;
