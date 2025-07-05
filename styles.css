@@ -19,7 +19,7 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, nav, .logo-text {
+h1, h2, h3, nav, .logo-text, .button-like {
   font-family: 'Orbitron', sans-serif;
 }
 
@@ -64,6 +64,15 @@ nav a, .button-like {
 nav a:hover, .button-like:hover {
   background: var(--accent-color);
   color: #000;
+}
+
+.button-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  border-style: dashed;
+  color: #888;
+  background: transparent;
+  cursor: default;
 }
 
 main {
