@@ -213,6 +213,9 @@ footer {
   padding: 2rem 1rem;
   font-size: 0.9rem;
   color: #666;
+  a {
+    color: #666;
+  }
 }
 
 .content a.button-like {
