@@ -66,6 +66,13 @@ nav a:hover, .button-like:hover {
   color: #000;
 }
 
+.button-like .button-subtext {
+  display: block;
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 0.75rem;
+  color: inherit;
+}
+
 .button-disabled {
   pointer-events: none;
   opacity: 0.5;
