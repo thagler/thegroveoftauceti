@@ -35,7 +35,7 @@
   <meta property="og:url" content="https://www.thegroveoftauceti.com">
   <meta property="og:type" content="website">
 </head>
-<body>
+<body class="effect-pulse">
   <header>
     <img src="grove-white.png" alt="The Grove of Tau Ceti" class="logo" />
     <p>A debut novel by Tobby Hagler — Available now!</p>
@@ -47,8 +47,16 @@
   </header>
 
   <main>
-    <div class="cover-img">
-      <img src="front-cover.jpg" alt="The Grove of Tau Ceti front cover" data-modal="cover" />
+    <div class="cover-img cover-animated">
+      <img
+        src="front-cover-med.jpeg"
+        srcset="front-cover-med.jpeg 414w, front-cover-large.jpeg 828w, front-cover.jpg 6600w"
+        sizes="(min-width: 1024px) 300px, (min-width: 768px) 45vw, 90vw"
+        alt="The Grove of Tau Ceti front cover"
+        data-modal="cover"
+        loading="eager"
+        fetchpriority="high"
+      />
       <p class="cover-caption">Cover art by <a href="https://nikwilets.com">Nik Wilets</a>.</p>
     </div>
     <div class="content">

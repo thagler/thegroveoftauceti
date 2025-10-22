@@ -107,6 +107,70 @@ main {
   cursor: pointer;
 }
 
+body.effect-pulse .cover-img {
+  position: relative;
+}
+
+body.effect-pulse .cover-img.cover-animated img {
+  opacity: 0;
+  transform: scale(1.06);
+  filter: saturate(1.4);
+  box-shadow: 0 4px 18px rgba(59, 158, 234, 0.35);
+  animation: cover-pulse-in 1.05s ease-out forwards;
+  will-change: opacity, transform, box-shadow, filter;
+}
+
+body.effect-pulse .cover-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(59, 158, 234, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+body.effect-pulse .cover-img.cover-animated::after {
+  animation: cover-pulse-outline 1.05s ease-out forwards;
+}
+
+@keyframes cover-pulse-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+    box-shadow: 0 0 0 rgba(59, 158, 234, 0);
+    filter: saturate(1.4) brightness(1.1);
+  }
+  45% {
+    opacity: 0.85;
+    box-shadow: 0 0 32px rgba(59, 158, 234, 0.75);
+  }
+  70% {
+    box-shadow: 0 0 12px rgba(59, 158, 234, 0.45);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    filter: none;
+  }
+}
+
+@keyframes cover-pulse-outline {
+  0% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+  35% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+}
+
 .content {
   flex: 2 1 400px;
 }

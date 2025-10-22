@@ -27,6 +27,31 @@ function closeModal() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const mainEl = document.querySelector('main');
+  const logoEl = document.querySelector('header img.logo');
+  const coverContainer = document.querySelector('.cover-img');
+  const coverImg = coverContainer ? coverContainer.querySelector('img') : null;
+
+  const ensurePrimaryFadeVisible = () => {
+    if (logoEl) {
+      logoEl.style.animation = 'none';
+      logoEl.style.opacity = '1';
+    }
+
+    if (mainEl) {
+      mainEl.style.animation = 'none';
+      mainEl.style.opacity = '1';
+    }
+
+    if (coverImg && coverContainer) {
+      coverContainer.classList.remove('cover-animated');
+      coverImg.style.opacity = '1';
+      coverImg.style.transform = 'scale(1)';
+      coverImg.style.filter = 'none';
+      coverImg.style.boxShadow = '';
+    }
+  };
+
   document.querySelectorAll('[data-modal-url]').forEach(el => {
     el.addEventListener('click', () => {
       const url = el.getAttribute('data-modal-url');
@@ -46,4 +71,31 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
+
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      ensurePrimaryFadeVisible();
+    }
+  });
+
+  window.addEventListener('pageshow', event => {
+    if (event.persisted) {
+      ensurePrimaryFadeVisible();
+    }
+  });
+
+  if (logoEl) {
+    logoEl.addEventListener('animationend', ensurePrimaryFadeVisible, { once: true });
+  }
+
+  if (mainEl) {
+    mainEl.addEventListener('animationend', ensurePrimaryFadeVisible, { once: true });
+  }
+
+  if (coverImg && coverContainer) {
+    coverImg.addEventListener('animationend', () => {
+      coverContainer.classList.remove('cover-animated');
+      ensurePrimaryFadeVisible();
+    }, { once: true });
+  }
 });
