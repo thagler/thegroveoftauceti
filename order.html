@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8MV0XHHFSP"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-8MV0XHHFSP');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Grove of Tau Ceti</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;400&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <img src="grove-white.png" alt="The Grove of Tau Ceti" class="logo" />
+    <p>Available to order now!</p>
+  </header>
+
+  <main>
+    <div class="content" style="text-align: center;">
+      <h2>Available to order now!</h2>
+      <p>
+        <a href="https://www.amazon.com/Grove-Tau-Ceti-Tobby-Hagler/dp/B0FWJ4KWFG/" class="button-like" target="_blank" rel="noopener noreferrer">Amazon Paperback</a>
+        <br>
+        <a href="https://www.amazon.com/Grove-Tau-Ceti-Tobby-Hagler/dp/B0FX6Y2X77/" class="button-like" target="_blank" rel="noopener noreferrer">Amazon Kindle Edition</a>
+        <br>
+        <a href="https://www.barnesandnoble.com/w/the-grove-of-tau-ceti-tobby-hagler/1148635967?ean=9798998732850" class="button-like" target="_blank" rel="noopener noreferrer">Barnes & Noble</a>
+        <br>
+        <a href="#" class="button-like button-disabled">
+          Other Retailers
+          <span class="button-subtext">(coming soon)</span>
+        </a>
+      </p>
+    </div>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-content" id="modal-content">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

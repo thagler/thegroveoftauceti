@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /order.html
+Disallow: /thanks-for-subscribing.html
+
+Sitemap: https://thegroveoftauceti.com/sitemap.xml
