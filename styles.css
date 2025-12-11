@@ -61,6 +61,24 @@ nav a, .button-like {
   cursor: pointer;
 }
 
+.header-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  width: fit-content;
+}
+
+.header-actions nav {
+  justify-content: center;
+}
+
+.discount-cta {
+  margin-top: 0;
+  text-align: center;
+}
+
 nav a:hover, .button-like:hover {
   background: var(--accent-color);
   color: #000;
@@ -71,6 +89,31 @@ nav a:hover, .button-like:hover {
   font-family: 'Noto Sans', sans-serif;
   font-size: 0.75rem;
   color: inherit;
+}
+
+.button-discount {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.85rem 1.75rem;
+  border-width: 2px;
+  background: rgba(59, 158, 234, 0.12);
+  box-shadow: 0 0 18px rgba(59, 158, 234, 0.35);
+  margin-bottom: 0.75rem;
+}
+
+.discount-cta .button-discount {
+  display: block;
+  width: 100%;
+}
+
+.button-discount:hover {
+  box-shadow: 0 0 26px rgba(59, 158, 234, 0.45);
+}
+
+.button-discount .button-subtext {
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
 }
 
 .button-disabled {
