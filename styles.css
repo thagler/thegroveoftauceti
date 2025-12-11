@@ -64,26 +64,23 @@ nav a, .button-like {
 .header-actions {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   gap: 1rem;
   margin-top: 1.5rem;
-  width: min(420px, 100%);
+  width: fit-content;
 }
 
 .header-actions nav {
   justify-content: center;
-  width: 100%;
 }
 
 .header-actions nav a {
-  flex: 1 1 auto;
   text-align: center;
 }
 
 .discount-cta {
   margin-top: 0;
   text-align: center;
-  width: 100%;
 }
 
 nav a:hover, .button-like:hover {
@@ -123,28 +120,31 @@ nav a:hover, .button-like:hover {
   letter-spacing: 0.03em;
 }
 
-@media (min-width: 640px) {
-  .header-actions {
-    width: min(640px, 100%);
-  }
+.order-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 1.25rem auto 0;
+  width: min(360px, 100%);
 }
 
-@media (min-width: 820px) {
-  .header-actions {
-    flex-direction: row;
-    align-items: stretch;
-    width: 100%;
-    gap: 1.5rem;
-  }
+.order-links .discount-cta {
+  width: 100%;
+}
 
-  .header-actions nav {
-    justify-content: flex-end;
-    gap: 0.75rem;
-  }
+.retailer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
 
-  .discount-cta {
-    max-width: 320px;
-  }
+.retailer-links .button-like {
+  display: block;
+  width: 100%;
+  margin: 0;
+  text-align: center;
 }
 
 .button-disabled {
