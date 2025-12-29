@@ -61,8 +61,6 @@ nav a, .button-like {
   cursor: pointer;
 }
 
-<<<<<<< Updated upstream
-=======
 .header-actions {
   display: flex;
   flex-direction: column;
@@ -111,7 +109,7 @@ nav a, .button-like {
   text-align: center;
 }
 
->>>>>>> Stashed changes
+
 nav a:hover, .button-like:hover {
   background: var(--accent-color);
   color: #000;
