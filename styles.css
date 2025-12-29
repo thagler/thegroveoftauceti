@@ -61,6 +61,57 @@ nav a, .button-like {
   cursor: pointer;
 }
 
+<<<<<<< Updated upstream
+=======
+.header-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  width: fit-content;
+}
+
+.header-actions nav {
+  justify-content: center;
+}
+
+.header-actions nav a {
+  text-align: center;
+}
+
+/*
+ * PROMOTIONAL BUTTON STYLES
+ * --------------------------
+ * Use these classes to add promotional/discount buttons to the site.
+ *
+ * USAGE IN index.html (in header, after </nav>):
+ *   <div class="discount-cta">
+ *     <a href="YOUR_LINK_HERE" class="button-like button-discount" target="_blank" rel="noopener noreferrer">
+ *       Main Button Text
+ *       <span class="button-subtext">Subtext with details (e.g., price, dates)</span>
+ *     </a>
+ *   </div>
+ *
+ * USAGE IN order.html (inside .order-links, before .retailer-links):
+ *   <div class="discount-cta">
+ *     <a href="YOUR_LINK_HERE" class="button-like button-discount" target="_blank" rel="noopener noreferrer">
+ *       Main Button Text
+ *       <span class="button-subtext">Subtext with details</span>
+ *     </a>
+ *   </div>
+ *
+ * Classes:
+ *   .discount-cta - Container for the promotional button
+ *   .button-discount - Prominent styling with glow effect
+ *   .button-subtext - Smaller text line below main text
+ */
+.discount-cta {
+  margin-top: 0;
+  text-align: center;
+}
+
+>>>>>>> Stashed changes
 nav a:hover, .button-like:hover {
   background: var(--accent-color);
   color: #000;
