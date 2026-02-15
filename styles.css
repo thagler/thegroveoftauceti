@@ -167,6 +167,9 @@ body:has(.order-links) main {
 
 .order-links .retailer-links .button-like {
   flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   text-align: center;
   padding: 0.5rem 0.25rem;
@@ -410,6 +413,10 @@ footer {
   margin: 0.5rem;
   transition: background 0.3s, color 0.3s;
   cursor: pointer;
+}
+
+.content a.button-like:hover {
+  color: #000;
 }
 
 @media (max-width: 768px) {
