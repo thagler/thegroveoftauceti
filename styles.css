@@ -109,6 +109,57 @@ nav a, .button-like {
   text-align: center;
 }
 
+.button-discount {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.85rem 1.75rem;
+  border-width: 2px;
+  background: rgba(59, 158, 234, 0.12);
+  box-shadow: 0 0 18px rgba(59, 158, 234, 0.35);
+  margin-bottom: 0.75rem;
+}
+
+.discount-cta .button-discount {
+  display: block;
+  width: 100%;
+}
+
+.button-discount:hover {
+  box-shadow: 0 0 26px rgba(59, 158, 234, 0.45);
+}
+
+.button-discount .button-subtext {
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+}
+
+.order-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 1.25rem auto 0;
+  width: min(540px, 100%);
+}
+
+.order-links .discount-cta {
+  width: 100%;
+}
+
+.retailer-links {
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.retailer-links .button-like {
+  flex: 1 1 0;
+  margin: 0;
+  text-align: center;
+  padding: 0.5rem 0.25rem;
+}
 
 nav a:hover, .button-like:hover {
   background: var(--accent-color);
