@@ -45,6 +45,10 @@ header p {
   margin-bottom: 1.5rem;
 }
 
+header.modal-header {
+  padding: 0;
+}
+
 nav {
   display: flex;
   gap: 1rem;
@@ -120,9 +124,10 @@ nav a, .button-like {
   margin-bottom: 0.75rem;
 }
 
-.discount-cta .button-discount {
+.discount-cta .button-like.button-discount {
   display: block;
   width: 100%;
+  margin: 0;
 }
 
 .button-discount:hover {
@@ -143,6 +148,11 @@ nav a, .button-like {
   width: min(540px, 100%);
 }
 
+body:has(.order-links) main {
+  display: block;
+  margin: 1.5rem auto;
+}
+
 .order-links .discount-cta {
   width: 100%;
 }
@@ -154,7 +164,7 @@ nav a, .button-like {
   width: 100%;
 }
 
-.retailer-links .button-like {
+.order-links .retailer-links .button-like {
   flex: 1 1 0;
   margin: 0;
   text-align: center;
@@ -424,5 +434,16 @@ footer {
   .button-like {
     padding: 0.4rem 0.8rem;
     font-size: 0.9rem;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .retailer-links {
+    flex-direction: column;
+  }
+
+  .order-links .retailer-links .button-like {
+    width: 100%;
   }
 }
