@@ -75,7 +75,8 @@ nav a, .button-like {
 }
 
 .header-actions nav {
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .header-actions nav a {
