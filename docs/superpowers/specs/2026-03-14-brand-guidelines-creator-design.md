@@ -75,7 +75,7 @@ On invocation, the skill presents a sequential intake questionnaire using AskUse
 
 | Step | Question | Options |
 |------|----------|---------|
-| **1. Inputs** | What brand materials are available? | 1. Codebase (auto-scan), 2. Documents (specify paths), 3. URLs (specify URLs), 4. None (start from scratch), 5. Multiple — follow-up asks "Which inputs? (e.g., 1 and 2)" accepting comma-separated option numbers |
+| **1. Inputs** | What brand materials are available? | 1. Codebase (auto-scan current project), 2. Documents (specify paths — accepts absolute paths anywhere on the filesystem, multiple paths comma-separated), 3. URLs (specify URLs), 4. None (start from scratch), 5. Multiple — follow-up asks "Which inputs? (e.g., 1 and 2)" accepting comma-separated option numbers |
 | **2. Modules** | Which brand modules to generate? | 1. Required only (Visual Identity + Assets), 2. Add Voice & Tone, 3. Add Content Patterns, 4. Add Technical Standards, 5. All modules |
 | **3. Existing** | Is there an existing brand skill to update? | 1. Auto-detect (scan .claude/skills/), 2. Specify path, 3. No (new brand) |
 | **4. Output** | Brand name for the generated skill? | Free text input |
@@ -170,6 +170,8 @@ The generated brand skill loads only the references relevant to the requested ou
 | **Convert** | Yes | Each module's skill reference file generated concurrently |
 
 ### Phase 1 — Scan (Codebase Extraction)
+
+The scan phase operates on the current project directory by default. If the user specified additional directories in the intake (e.g., a shared assets folder at an absolute path), scan those directories as well. All paths provided by the user are treated as absolute paths and read directly — they do not need to be inside the project.
 
 Dispatches parallel subagents via the Agent tool (subagent_type: Explore) per enabled module. All agents run concurrently in a single message with multiple Agent tool calls:
 
@@ -319,7 +321,36 @@ The Asset Management module owns template files (reusable component templates, b
 
 ---
 
-## 7. Non-Goals
+## 7. Platform Compatibility
+
+The skill is designed primarily for Claude Code CLI but should degrade gracefully in other environments.
+
+### Tool Availability by Platform
+
+| Capability | Claude Code CLI | Claude Desktop (Chat/CoWork) |
+|------------|----------------|------------------------------|
+| File system (Glob, Grep, Read, Write) | Built-in | Requires MCP file system server |
+| Parallel subagents (Agent tool) | Built-in | Not available |
+| AskUserQuestion | Built-in interactive prompt | Natural conversation (ask in message, user replies) |
+| WebFetch | Built-in | May require MCP or be unavailable |
+| File drag-and-drop | Not applicable | Built-in (files added via UI) |
+
+### Degraded Mode for Non-CLI Environments
+
+When running outside Claude Code CLI (detected by unavailability of Glob/Grep/Agent tools):
+
+- **Scan phase**: Run sequentially instead of via parallel agents. Use Read on user-specified file paths instead of Glob/Grep discovery. If file system tools are unavailable, skip the scan phase entirely and rely on ingested documents and user interview.
+- **Ingest phase**: Accept files provided via the chat UI (drag-and-drop) in addition to file paths. Read each file directly.
+- **Interview phase**: Use natural conversational Q&A instead of AskUserQuestion. Present options as numbered lists in messages. This is the most portable phase — it works identically in any environment.
+- **Draft phase**: Write the guidelines document to a path the user specifies. If Write is unavailable, present the document content in the conversation for the user to copy.
+- **Convert phase**: Same as draft — write to `.claude/skills/` if possible, otherwise present content for manual creation.
+- **Parallelism**: All parallelism downgrades to sequential execution. The skill still works; it just takes longer.
+
+The skill's SKILL.md should detect available tools at the start of execution and route to the appropriate mode. The core logic (module system, extraction schemas, confidence tiers, provenance tracking) is platform-independent.
+
+---
+
+## 8. Non-Goals
 
 - No brand-specific content in the creator skill itself (no examples, defaults, or sample brands)
 - No full regeneration mode — updates are always incremental
@@ -329,7 +360,7 @@ The Asset Management module owns template files (reusable component templates, b
 
 ---
 
-## 8. Future Considerations
+## 9. Future Considerations
 
 - **Plugin conversion**: The standalone repo structure (`~/repos/brand-guidelines-creator/`) is designed for future packaging as a Claude Code plugin
 - **Design tool integration**: Future versions could import from Figma design tokens or Sketch libraries

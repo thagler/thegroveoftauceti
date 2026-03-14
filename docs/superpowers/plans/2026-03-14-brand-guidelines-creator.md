@@ -130,6 +130,8 @@ Key rules for writing SKILL.md:
 - No brand-specific content — no examples referencing any real brand
 - Reference files by path, do not duplicate their content
 - Under 5,000 words
+- Include a **Platform Detection** section near the top that detects available tools (Glob, Grep, Agent) and routes to degraded mode for non-CLI environments (see spec Section 7). In degraded mode: scan runs sequentially or is skipped, AskUserQuestion becomes conversational Q&A, parallelism downgrades to sequential, and files can be accepted via drag-and-drop UI
+- Intake questionnaire must accept absolute paths for document locations (not just project-relative paths). Multiple paths are comma-separated.
 
 - [ ] **Step 2: Validate the skill**
 
@@ -186,7 +188,8 @@ git commit -m "feat: add module definitions with extraction schemas and confiden
 This file contains the detailed instructions for Phase 1 (codebase extraction). Content:
 
 1. Overview of the scan phase and when it runs
-2. Per-module agent dispatch instructions (which tools to use, what patterns to search for)
+2. Multi-path scanning: scan the current project directory by default, plus any additional absolute paths the user specified in the intake. All user-provided paths are treated as absolute and read directly — they do not need to be inside the project.
+3. Per-module agent dispatch instructions (which tools to use, what patterns to search for)
 3. Agent prompt templates for each of the 5 modules:
    - Visual Identity: Grep patterns for CSS variables, color values, font-face declarations, Google Fonts imports; Glob patterns for CSS/SCSS/design token files
    - Assets: Glob patterns for images (*.png, *.jpg, *.jpeg, *.gif, *.svg, *.ico, *.webp), fonts (*.woff, *.woff2, *.ttf, *.otf, *.eot), favicons; Read HTML for srcset/link references
@@ -241,7 +244,8 @@ git commit -m "feat: add scan phase with per-module agent prompts and tool patte
 This file contains the detailed instructions for Phase 2 (document ingestion). Content:
 
 1. Overview of the ingest phase and when it runs (only if user specified documents/URLs)
-2. Source type handling:
+2. Path handling: accept absolute paths anywhere on the filesystem, not just project-relative. Multiple paths comma-separated. In Claude Desktop, also accept files provided via the chat UI (drag-and-drop). If a path is a directory, recurse into it and process all supported file types found.
+3. Source type handling:
    - Markdown/text: Read directly, extract brand elements by module
    - PDF: Read tool with pages parameter; chunk large files (20 pages per request); warn user for 50+ page PDFs
    - URLs: WebFetch tool; note static HTML only limitation
