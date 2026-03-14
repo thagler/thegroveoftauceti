@@ -161,19 +161,19 @@ The generated brand skill loads only the references relevant to the requested ou
 
 ### Parallelism Model
 
-| Phase | Parallel? | How |
-|-------|-----------|-----|
-| **Scan** | Yes | One agent per module, all scanning concurrently |
-| **Ingest** | Yes | Multiple documents parsed in parallel |
-| **Interview** | Partially | Questions prepared in parallel, asked sequentially |
-| **Draft** | Yes | Each module section drafted concurrently |
-| **Convert** | Yes | Each module's skill reference file generated concurrently |
+| Phase | Parallel? | How | Model |
+|-------|-----------|-----|-------|
+| **Scan** | Yes | One agent per module, all scanning concurrently | Haiku (mechanical file discovery and extraction) |
+| **Ingest** | Yes | Multiple documents parsed in parallel | Haiku (reading files, extracting values into known schema) |
+| **Interview** | No | Runs in main conversation (sequential Q&A with user) | Inherits parent model |
+| **Draft** | Yes | Each module section drafted concurrently | Sonnet (writing coherent prose, structural judgment) |
+| **Convert** | Yes | Each module's skill reference file generated concurrently | Sonnet (generating skill files following conventions) |
 
 ### Phase 1 — Scan (Codebase Extraction)
 
 The scan phase operates on the current project directory by default. If the user specified additional directories in the intake (e.g., a shared assets folder at an absolute path), scan those directories as well. All paths provided by the user are treated as absolute paths and read directly — they do not need to be inside the project.
 
-Dispatches parallel subagents via the Agent tool (subagent_type: Explore) per enabled module. All agents run concurrently in a single message with multiple Agent tool calls:
+Dispatches parallel subagents via the Agent tool (subagent_type: Explore, model: haiku) per enabled module. All agents run concurrently in a single message with multiple Agent tool calls:
 
 - **Visual Identity agent**: Uses Grep/Glob/Read to find CSS/SCSS files, design token configs, tailwind configs. Extracts color values, font declarations, spacing scales, border radii, shadows.
 - **Assets agent**: Uses Glob to find image files (*.png, *.jpg, *.svg, *.ico), font files (*.woff, *.woff2, *.ttf, *.otf), and other brand assets. Uses Read on HTML to find srcset/favicon references. Catalogs paths, formats, and sizes.

@@ -197,7 +197,7 @@ This file contains the detailed instructions for Phase 1 (codebase extraction). 
    - Technical Standards: Grep for @media queries, animation/keyframe declarations, naming patterns; Read config files (tailwind.config, postcss.config, etc.)
    - Voice & Tone: Read HTML for visible text content, analyze with LLM reasoning
 4. Report format instructions (markdown sections with inline provenance)
-5. Parallelism instructions (dispatch all enabled module agents in a single message via Agent tool, subagent_type: Explore)
+5. Parallelism instructions (dispatch all enabled module agents in a single message via Agent tool, subagent_type: Explore, model: haiku — scan/ingest agents use Haiku for cost efficiency since their work is mechanical file discovery and extraction)
 6. Scan-specific fallback behavior (from spec fallback table rows 1, 2, 7): no CSS found, no asset files found, no HTML files in project
 
 - [ ] **Step 1: Write references/phase-scan.md**
@@ -358,7 +358,7 @@ This file contains the detailed instructions for Phase 4 (guidelines document ge
    - Include extracted/confirmed values with inline provenance
    - State usage rules and constraints clearly
    - Include examples where relevant (drawn from the actual brand data, not generic examples)
-5. Parallelism: each module section can be drafted concurrently via parallel agents
+5. Parallelism: each module section can be drafted concurrently via parallel agents (model: sonnet — draft agents require judgment about prose quality and structure)
 6. Writing style: clear, direct, reference-style (not conversational)
 
 - [ ] **Step 1: Write references/phase-draft.md**
@@ -398,7 +398,7 @@ This file contains the detailed instructions for Phase 5 (skill generation). Con
    - One file per enabled module
    - Include provenance metadata comment at top
    - Include all extracted/confirmed values with inline provenance
-6. Parallelism: generate reference files concurrently (one agent per module)
+6. Parallelism: generate reference files concurrently (one agent per module, model: sonnet — convert agents require judgment about skill conventions and structure)
 7. Validation: run quick_validate.py on the generated skill
 
 - [ ] **Step 1: Write references/phase-convert.md**
