@@ -1,0 +1,656 @@
+<!-- PRINT TO PDF INSTRUCTIONS:
+     1. Open this file in Chrome (required for correct rendering)
+     2. File > Print (or Cmd+P / Ctrl+P)
+     3. Destination: Save as PDF
+     4. Paper size: Create a custom size of 9" x 11.5"
+        - macOS: In the Paper Size dropdown, select "Manage Custom Sizes..."
+          then add a new size with width 9" and height 11.5", all margins 0
+        - Windows: In Printer Properties > Paper/Quality > Advanced,
+          add a custom paper size of 9" x 11.5"
+     5. Margins: None
+     6. Enable "Background graphics" checkbox
+     7. Save the PDF
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Grove of Tau Ceti — Sell Sheet</title>
+  <style>
+    @page {
+      size: 9in 11.5in;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      font-weight: 400;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #e6e6e6;
+      background: #fff;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    img {
+      image-rendering: high-quality;
+    }
+
+    /* ── Outer canvas: 9in x 11.5in ── */
+    .page {
+      width: 9in;
+      height: 11.5in;
+      position: relative;
+      margin: 0 auto;
+      background: #0c0c0c;
+      overflow: hidden;
+    }
+
+    /* ── Crop marks ── */
+    .page::before,
+    .page::after,
+    .trim-area::before,
+    .trim-area::after {
+      content: '';
+      position: absolute;
+      z-index: 100;
+    }
+
+    .page::before {
+      top: 0.25in;
+      left: 0.1in;
+      width: 0.15in;
+      height: 0;
+      border-top: 0.5px solid #3b9eea;
+    }
+    .page::after {
+      top: 0.1in;
+      left: 0.25in;
+      width: 0;
+      height: 0.15in;
+      border-left: 0.5px solid #3b9eea;
+    }
+
+    .trim-area::before {
+      top: -0.15in;
+      right: -0.15in;
+      width: 0.15in;
+      height: 0;
+      border-top: 0.5px solid #3b9eea;
+    }
+    .trim-area::after {
+      top: -0.15in;
+      right: -0.25in;
+      width: 0;
+      height: 0.15in;
+      border-left: 0.5px solid #3b9eea;
+    }
+
+    .crop-bl::before {
+      content: '';
+      position: absolute;
+      bottom: 0.25in;
+      left: 0.1in;
+      width: 0.15in;
+      border-top: 0.5px solid #3b9eea;
+    }
+    .crop-bl::after {
+      content: '';
+      position: absolute;
+      bottom: 0.1in;
+      left: 0.25in;
+      height: 0.15in;
+      border-left: 0.5px solid #3b9eea;
+    }
+
+    .crop-br::before {
+      content: '';
+      position: absolute;
+      bottom: 0.25in;
+      right: 0.1in;
+      width: 0.15in;
+      border-top: 0.5px solid #3b9eea;
+    }
+    .crop-br::after {
+      content: '';
+      position: absolute;
+      bottom: 0.1in;
+      right: 0.25in;
+      height: 0.15in;
+      border-left: 0.5px solid #3b9eea;
+    }
+
+    /* ── Trim area: 8.5in x 11in centered ── */
+    .trim-area {
+      position: absolute;
+      top: 0.25in;
+      left: 0.25in;
+      width: 8.5in;
+      height: 11in;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Top section: Cover + Book Info ── */
+    .top-section {
+      background: #1e2d4f;
+      margin: -0.25in -0.25in 0 -0.25in;
+      padding: 0.3in 0.5in 0.25in;
+      display: flex;
+      gap: 0.35in;
+      align-items: flex-start;
+    }
+
+    .cover-container {
+      flex: 0 0 1.9in;
+    }
+
+    .cover-container img {
+      width: 1.9in;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    .book-info {
+      flex: 1;
+      padding-top: 0.05in;
+    }
+
+    .book-info .header-logo {
+      width: 1.8in;
+      margin-bottom: 0.08in;
+      float: right;
+      margin-left: 0.15in;
+      opacity: 0.6;
+    }
+
+    .book-author {
+      font-family: Arial, 'Helvetica Neue', sans-serif;
+      font-weight: 400;
+      font-size: 10pt;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #7b9ab8;
+      margin-bottom: 0.1in;
+    }
+
+    .tagline {
+      font-style: italic;
+      font-size: 10.5pt;
+      color: #3b9eea;
+      margin-bottom: 0.1in;
+    }
+
+    .synopsis {
+      font-size: 9.5pt;
+      line-height: 1.45;
+      color: #e6e6e6;
+    }
+
+    .synopsis p {
+      margin-bottom: 0.04in;
+    }
+
+    /* ── Details bar ── */
+    .details-bar {
+      display: flex;
+      gap: 0.2in;
+      padding: 0.12in 0.5in;
+      margin: 0 -0.25in;
+      background: rgba(30, 45, 79, 0.4);
+      border-top: 1px solid rgba(59, 158, 234, 0.25);
+      border-bottom: 1px solid rgba(59, 158, 234, 0.25);
+    }
+
+    .detail-item {
+      flex: 1;
+    }
+
+    .detail-label {
+      font-family: Arial, 'Helvetica Neue', sans-serif;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #7b9ab8;
+      margin-bottom: 0.02in;
+    }
+
+    .detail-value {
+      font-size: 8.5pt;
+      color: #e6e6e6;
+    }
+
+    /* ── Middle section: two columns ── */
+    .middle-section {
+      flex: 1;
+      display: flex;
+      gap: 0.3in;
+      padding: 0.2in 0.5in 0.15in;
+    }
+
+    .left-column {
+      flex: 1;
+    }
+
+    .right-column {
+      flex: 0 0 2.6in;
+    }
+
+    .section-heading {
+      font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+      font-weight: 900;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #3b9eea;
+      margin-bottom: 0.08in;
+    }
+
+    /* ── Social proof ── */
+    .social-proof {
+      margin-bottom: 0.18in;
+    }
+
+    .quote {
+      margin-bottom: 0.1in;
+    }
+
+    .quote blockquote {
+      font-style: italic;
+      font-size: 9.5pt;
+      line-height: 1.45;
+      color: #e6e6e6;
+      margin-bottom: 0.04in;
+    }
+
+    .quote blockquote::before {
+      content: '\201C';
+      color: #3b9eea;
+      font-size: 14pt;
+      line-height: 0;
+      vertical-align: -0.12em;
+      margin-right: 0.02in;
+    }
+
+    .quote blockquote::after {
+      content: '\201D';
+      color: #3b9eea;
+      font-size: 14pt;
+      line-height: 0;
+      vertical-align: -0.12em;
+      margin-left: 0.02in;
+    }
+
+    .quote .attribution {
+      font-size: 8pt;
+      color: #7b9ab8;
+      font-style: normal;
+    }
+
+    .quote .stars {
+      color: #c9a84c;
+      font-size: 9pt;
+      letter-spacing: 0.03em;
+      display: inline;
+      margin-left: 0.06in;
+    }
+
+    /* ── Selling points ── */
+    .selling-points {
+      margin-bottom: 0.15in;
+    }
+
+    .selling-points ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .selling-points li {
+      font-size: 8.5pt;
+      line-height: 1.4;
+      padding-left: 0.15in;
+      position: relative;
+      margin-bottom: 0.04in;
+      color: #e6e6e6;
+    }
+
+    .selling-points li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.07in;
+      width: 4px;
+      height: 4px;
+      background: #3b9eea;
+      border-radius: 50%;
+    }
+
+    /* ── Comparable titles ── */
+    .comp-text {
+      font-size: 8pt;
+      font-style: italic;
+      color: #7b9ab8;
+      line-height: 1.45;
+    }
+
+    /* ── Pricing box ── */
+    .pricing-box {
+      background: rgba(30, 45, 79, 0.35);
+      border: 1px solid rgba(59, 158, 234, 0.3);
+      border-radius: 6px;
+      padding: 0.1in 0.15in;
+      margin-bottom: 0.1in;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.02in 0;
+    }
+
+    .price-label {
+      font-size: 9pt;
+      color: #7b9ab8;
+    }
+
+    .price-value {
+      font-size: 10pt;
+      color: #e6e6e6;
+      font-weight: 400;
+    }
+
+    .price-value.highlight {
+      color: #c9a84c;
+      font-size: 12pt;
+      font-weight: 700;
+      font-family: Arial, 'Helvetica Neue', sans-serif;
+    }
+
+    .price-divider {
+      border: none;
+      border-top: 1px solid rgba(59, 158, 234, 0.15);
+      margin: 0.02in 0;
+    }
+
+    .return-policy {
+      font-size: 8pt;
+      line-height: 1.4;
+      color: #7b9ab8;
+      text-align: center;
+      margin-bottom: 0.12in;
+    }
+
+    .return-policy strong {
+      color: #e6e6e6;
+    }
+
+    .order-via {
+      margin-bottom: 0.08in;
+    }
+
+    .order-via .detail-value {
+      font-size: 9.5pt;
+      margin-bottom: 0.03in;
+    }
+
+    .order-via .detail-label {
+      margin-top: 0.02in;
+    }
+
+    /* ── Author bio ── */
+    .author-section {
+      padding: 0;
+      margin-top: 0.08in;
+    }
+
+    .author-bio {
+      font-size: 8pt;
+      line-height: 1.4;
+      color: #999999;
+    }
+
+    /* ── Footer band ── */
+    .footer-band {
+      background: #1e2d4f;
+      margin: 0 -0.25in -0.25in -0.25in;
+      padding: 0.18in 0.5in;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-size: 8pt;
+      line-height: 1.7;
+      color: #7b9ab8;
+    }
+
+    .footer-left a {
+      color: #3b9eea;
+      text-decoration: none;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: 8pt;
+      color: #7b9ab8;
+      line-height: 1.7;
+    }
+
+    .footer-right .distributor {
+      font-family: Arial, 'Helvetica Neue', sans-serif;
+      font-size: 7pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #7b9ab8;
+    }
+
+    .footer-right .distributor-name {
+      font-size: 9.5pt;
+      color: #e6e6e6;
+    }
+
+    .footer-right .publisher {
+      font-size: 7.5pt;
+      color: #5b5878;
+    }
+
+    /* ── Print overrides ── */
+    @media print {
+      body {
+        background: #0c0c0c;
+      }
+
+      .page {
+        margin: 0;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+
+      .top-section,
+      .details-bar,
+      .middle-section,
+      .author-section,
+      .footer-band {
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page crop-bl crop-br">
+  <div class="trim-area">
+
+    <!-- TOP: Cover + Book Info -->
+    <div class="top-section">
+      <div class="cover-container">
+        <img src="../front-cover-large.jpeg" alt="The Grove of Tau Ceti front cover">
+      </div>
+      <div class="book-info">
+        <img src="source-materials/grove-white.png" alt="The Grove of Tau Ceti" class="header-logo">
+        <div class="book-author">Tobby Hagler</div>
+        <div class="tagline">Demeter's not herself anymore.</div>
+        <div class="synopsis">
+          <p>Once the pride of humanity's interstellar fleet, the ESS <em>Demeter</em>
+          is on a final voyage to the forests of Tau Ceti. On board, a haunted
+          telepath, an ancient Druid, and a sentient sapling hold the key to
+          reawakening a dying world.</p>
+          <p>When psychic interference stirs something hidden in <em>Demeter</em>'s
+          organic systems, an unsettling truth emerges &mdash; one that reshapes
+          everything the crew believed about their mission, their ship, and
+          themselves.</p>
+          <p>With time running out, they face an impossible choice:
+          reclaim what was lost, or risk losing the galaxy's last living
+          connection to Earth.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAILS BAR -->
+    <div class="details-bar">
+      <div class="detail-item">
+        <div class="detail-label">Format</div>
+        <div class="detail-value">Trade Paperback</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Pages</div>
+        <div class="detail-value">368</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">ISBN (Paperback)</div>
+        <div class="detail-value">979-8-9987328-5-0</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">ISBN (Kindle)</div>
+        <div class="detail-value">979-8-9987328-1-2</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-label">Genre</div>
+        <div class="detail-value">Science Fiction</div>
+      </div>
+    </div>
+
+    <!-- MIDDLE: Two columns -->
+    <div class="middle-section">
+
+      <!-- LEFT: Reviews, selling points, comps -->
+      <div class="left-column">
+
+        <div class="social-proof">
+          <div class="section-heading">Praise</div>
+          <div class="quote">
+            <blockquote>A fast-paced sci-fi story with fantasy elements, gripping cosmic suspense and cinematic scope.</blockquote>
+            <div class="attribution">&mdash; <em>The Voice of Blythewood</em></div>
+          </div>
+          <div class="quote">
+            <blockquote>This book reads like a movie, and I could see every scene playing out in my mind. The characters were realistic, and their interactions authentic. Once I started reading, I had trouble putting it down.</blockquote>
+            <div class="attribution">&mdash; Becky M., Amazon <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          </div>
+          <div class="quote">
+            <blockquote>The author has a knack for very natural dialogue and painting a scene in my mind so well, there were times I felt like I was an extra crew member tagging along on the mission.</blockquote>
+            <div class="attribution">&mdash; Mark, Amazon <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div>
+          </div>
+        </div>
+
+        <div class="selling-points">
+          <div class="section-heading">Why Stock This Title</div>
+          <ul>
+            <li>Character-driven literary sci-fi with crossover appeal to fantasy readers (Druid mythology meets interstellar exploration)</li>
+            <li>Local author &mdash; Tobby Hagler, Blythewood, SC. Available for signings and events.</li>
+            <li>Strong local interest &mdash; already stocked at All Good Books, Columbia, SC</li>
+            <li>Professional production: cover art by Nik Wilets, formatted via Vellum, distributed by IngramSpark</li>
+            <li>Debut novel with sequel in the works</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Pricing + ordering -->
+      <div class="right-column">
+
+        <div class="section-heading">Retailer Pricing</div>
+        <div class="pricing-box">
+          <div class="price-row">
+            <span class="price-label">Retail Price</span>
+            <span class="price-value">$18.99</span>
+          </div>
+          <hr class="price-divider">
+          <div class="price-row">
+            <span class="price-label">Retailer Discount</span>
+            <span class="price-value">40%</span>
+          </div>
+          <hr class="price-divider">
+          <div class="price-row">
+            <span class="price-label">Your Cost</span>
+            <span class="price-value">$11.39</span>
+          </div>
+          <hr class="price-divider">
+          <div class="price-row">
+            <span class="price-label">Your Margin</span>
+            <span class="price-value highlight">$7.60</span>
+          </div>
+        </div>
+
+        <div class="return-policy">
+          <strong>Returns accepted.</strong><br>
+          Unsold copies may be returned to the distributor.
+        </div>
+
+        <div class="order-via">
+          <div class="section-heading">Order Via</div>
+          <div class="detail-value">IngramSpark / Ingram Book Company</div>
+          <div class="detail-label">Search by ISBN or title in iPage</div>
+        </div>
+
+        <div class="comp-section">
+          <div class="section-heading">Comparable Titles</div>
+          <div class="comp-text">
+            Becky Chambers, Adrian Tchaikovsky, Sue Burke (<em>Semiosis</em>),
+            Arkady Martine (<em>A Memory Called Empire</em>),
+            Simon Jimenez (<em>The Vanished Birds</em>),
+            Anne McCaffrey (<em>The Ship Who Sang</em>).
+            Readers also compare to <em>The Expanse</em> and <em>Farscape</em> TV series.
+          </div>
+        </div>
+
+        <div class="author-section">
+          <div class="section-heading">About the Author</div>
+          <div class="author-bio">
+            Tobby Hagler is a software engineering director and speculative-fiction author
+            exploring the intersections of technology, humanity, and the unknown. He lives
+            with his wife and their three dogs in the Carolina Midlands, beside a quiet pond
+            and a nearly unhaunted forest. <em>The Grove of Tau Ceti</em> is his first novel.
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- FOOTER BAND -->
+    <div class="footer-band">
+      <div class="footer-left">
+        <a href="https://thegroveoftauceti.com/">thegroveoftauceti.com</a><br>
+        <a href="https://tobbyhagler.com/">tobbyhagler.com</a>
+      </div>
+      <div class="footer-right">
+        <div><span class="distributor">Distributed By</span> <span class="distributor-name">IngramSpark</span></div>
+        <div class="publisher">Loch Solace Publishing &mdash; Blythewood, SC</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
