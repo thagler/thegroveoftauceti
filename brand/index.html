@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Grove of Tau Ceti — Brand Guidelines</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;400;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0c0c;
+      --surface: #1a1a1a;
+      --text: #e6e6e6;
+      --accent: #3b9eea;
+      --accent-hover: #85c5ff;
+      --deep-navy: #1e2d4f;
+      --mid-blue: #3d5a87;
+      --slate: #7b9ab8;
+      --silhouette: #243352;
+      --gold: #c9a84c;
+      --coral: #c44a3a;
+      --purple: #5b5878;
+      --muted: #999;
+      --footer-gray: #666;
+      --border: #444;
+      --max-w: 1440px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      font-weight: 200;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-child { border-bottom: none; }
+
+    /* ── Nav ── */
+    .brand-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(12, 12, 12, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-nav .container {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      overflow-x: auto;
+    }
+
+    .brand-nav .nav-title {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .brand-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 400;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+
+    .brand-nav a:hover { color: var(--text); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 5rem 0 4rem;
+      text-align: center;
+      background: var(--surface);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .hero img.logo {
+      max-width: 300px;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* ── Headings ── */
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    h2 .section-num {
+      color: var(--border);
+      margin-right: 0.5rem;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+      max-width: 640px;
+    }
+
+    h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 2rem 0 1rem;
+    }
+
+    h3:first-of-type { margin-top: 0; }
+
+    /* ── Color swatches ── */
+    .color-strip {
+      display: flex;
+      height: 48px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 2rem;
+    }
+
+    .color-strip div {
+      flex: 1;
+      position: relative;
+    }
+
+    .color-strip div::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.55rem;
+      font-weight: 400;
+      white-space: nowrap;
+      color: rgba(255,255,255,0.6);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .swatch {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .swatch-color {
+      height: 72px;
+      position: relative;
+    }
+
+    .swatch-color::after {
+      content: attr(data-hex);
+      position: absolute;
+      bottom: 6px;
+      right: 8px;
+      font-size: 0.65rem;
+      font-family: monospace;
+      padding: 2px 6px;
+      border-radius: 3px;
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+    }
+
+    .swatch-info {
+      padding: 0.5rem 0.65rem;
+    }
+
+    .swatch-name {
+      font-weight: 400;
+      font-size: 0.8rem;
+      display: block;
+    }
+
+    .swatch-usage {
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    /* ── Rules list ── */
+    .rules {
+      background: var(--surface);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .rules h4 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 500;
+      font-size: 0.75rem;
+      color: var(--slate);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.75rem;
+    }
+
+    .rules ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .rules li {
+      font-size: 0.85rem;
+      line-height: 1.55;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.35rem;
+    }
+
+    .rules li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .rule-dont li::before {
+      background: var(--coral);
+    }
+
+    /* ── Type specimens ── */
+    .type-specimen {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .type-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .type-meta {
+      font-size: 0.7rem;
+      font-family: monospace;
+      color: var(--footer-gray);
+      margin-top: 0.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.6rem;
+      padding: 2px 8px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-weight: 400;
+      vertical-align: middle;
+      margin-left: 0.5rem;
+    }
+
+    .badge-web { background: #1b3a1b; color: #4caf50; }
+    .badge-print { background: #3a2a1b; color: var(--gold); }
+
+    /* ── Component demos ── */
+    .component-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .component-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .component-card .card-title {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    /* Live button demos */
+    .btn {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--text);
+      border: 1px solid var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s, color 0.3s;
+      cursor: pointer;
+      background: transparent;
+      font-size: 0.85rem;
+    }
+
+    .btn:hover { background: var(--accent); color: #000; }
+
+    .btn-promo {
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      border-width: 2px;
+      background: rgba(59,158,234,0.12);
+      box-shadow: 0 0 18px rgba(59,158,234,0.35);
+      text-align: center;
+    }
+
+    .btn-promo:hover {
+      box-shadow: 0 0 26px rgba(59,158,234,0.45);
+      background: var(--accent);
+      color: #000;
+    }
+
+    .btn-promo .subtext {
+      display: block;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 200;
+    }
+
+    .btn-disabled {
+      pointer-events: none;
+      opacity: 0.5;
+      border-style: dashed;
+      color: #888;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    /* ── Region map ── */
+    .region-map {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      max-width: 640px;
+    }
+
+    .region {
+      padding: 1rem 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .region-name {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .region-colors {
+      font-family: monospace;
+      font-size: 0.7rem;
+    }
+
+    /* ── Logo demos ── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .logo-card {
+      border-radius: 8px;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .logo-card img { max-width: 200px; width: 100%; }
+
+    .logo-card .bg-note {
+      position: absolute;
+      bottom: 8px;
+      right: 10px;
+      font-size: 0.6rem;
+      font-family: monospace;
+      color: var(--muted);
+    }
+
+    /* ── Spacing demo ── */
+    .spacing-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .spacing-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .spacing-item .block {
+      background: var(--accent);
+      border-radius: 3px;
+      opacity: 0.5;
+    }
+
+    .spacing-item .val {
+      font-family: monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    /* ── Table ── */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    .data-table th {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 500;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate);
+      text-align: left;
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.5rem 0.75rem;
+      border-bottom: 1px solid rgba(68, 68, 68, 0.4);
+      vertical-align: top;
+    }
+
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .data-table code {
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* ── Do/Don't ── */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* ── Voice card ── */
+    .voice-traits {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .voice-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .voice-card strong {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .voice-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 0.25rem;
+    }
+
+    /* ── Print section ── */
+    .print-divider {
+      text-align: center;
+      padding: 3rem 0;
+      border-bottom: 2px solid var(--deep-navy);
+    }
+
+    .print-divider h2 {
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .print-type-demo {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .print-font-title {
+      font-family: 'Arial Black', 'Helvetica Neue', sans-serif;
+      font-weight: 900;
+      font-size: 1.8rem;
+      letter-spacing: 0.02em;
+    }
+
+    .print-font-author {
+      font-family: Arial, 'Helvetica Neue', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 0.04em;
+    }
+
+    .print-font-body {
+      font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    /* ── CMYK table ── */
+    .cmyk-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(68,68,68,0.3);
+      font-size: 0.8rem;
+    }
+
+    .cmyk-row:last-child { border-bottom: none; }
+
+    .cmyk-swatch {
+      width: 28px;
+      height: 28px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .cmyk-name { flex: 0 0 120px; font-weight: 400; }
+    .cmyk-hex { flex: 0 0 70px; font-family: monospace; color: var(--muted); }
+    .cmyk-val { flex: 1; font-family: monospace; color: var(--slate); }
+
+    /* ── Asset table ── */
+    .asset-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+    }
+
+    .asset-table th {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 500;
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate);
+      text-align: left;
+      padding: 0.5rem 0.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .asset-table td {
+      padding: 0.45rem 0.6rem;
+      border-bottom: 1px solid rgba(68,68,68,0.3);
+      vertical-align: top;
+    }
+
+    .asset-table tr:last-child td { border-bottom: none; }
+
+    .asset-table code {
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    .asset-table .asset-purpose {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    /* ── Tone spectrum ── */
+    .tone-row {
+      display: flex;
+      gap: 1rem;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid rgba(68,68,68,0.3);
+      font-size: 0.85rem;
+      align-items: baseline;
+    }
+
+    .tone-row:last-child { border-bottom: none; }
+
+    .tone-context {
+      flex: 0 0 180px;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .tone-desc {
+      flex: 0 0 200px;
+      color: var(--slate);
+      font-style: italic;
+    }
+
+    .tone-example {
+      flex: 1;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── Messaging hierarchy ── */
+    .msg-hierarchy {
+      counter-reset: msg-counter;
+      list-style: none;
+      padding: 0;
+    }
+
+    .msg-hierarchy li {
+      counter-increment: msg-counter;
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(68,68,68,0.3);
+      font-size: 0.85rem;
+    }
+
+    .msg-hierarchy li:last-child { border-bottom: none; }
+
+    .msg-hierarchy li::before {
+      content: counter(msg-counter);
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      width: 1.5rem;
+      text-align: center;
+    }
+
+    .msg-hierarchy .msg-name {
+      font-weight: 400;
+      flex: 0 0 140px;
+    }
+
+    .msg-hierarchy .msg-desc {
+      color: var(--muted);
+      flex: 1;
+    }
+
+    /* ── Cover derivation ── */
+    .cover-derivation {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .cover-derivation .cover-thumb {
+      flex: 0 0 260px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .cover-derivation .cover-thumb img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .cover-derivation .derivation-text {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .color-source-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.35rem 0;
+      font-size: 0.8rem;
+    }
+
+    .color-source-row .mini-swatch {
+      width: 20px;
+      height: 20px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .color-source-row .src-name { flex: 0 0 130px; font-weight: 400; }
+    .color-source-row .src-from { color: var(--muted); flex: 1; }
+
+    /* ── Page structure diagrams ── */
+    .page-pattern {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .page-pattern h4 {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 500;
+      font-size: 0.8rem;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-pattern p,
+    .page-pattern li {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .page-pattern ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .page-pattern li {
+      padding-left: 0.8rem;
+      position: relative;
+      margin-bottom: 0.2rem;
+    }
+
+    .page-pattern li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 4px;
+      height: 4px;
+      background: var(--border);
+      border-radius: 50%;
+    }
+
+    /* ── Footer ── */
+    .guide-footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: var(--footer-gray);
+    }
+
+    /* ── Responsive: Tablet ── */
+    @media (max-width: 768px) {
+      .container { padding: 0 1.5rem; }
+      section { padding: 3rem 0; }
+      .hero { padding: 3rem 0 2.5rem; }
+      h2 { font-size: 1.2rem; }
+      .palette-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+      .logo-grid { grid-template-columns: 1fr 1fr; }
+      .component-grid { grid-template-columns: 1fr; }
+      .do-dont { grid-template-columns: 1fr; }
+      .voice-traits { grid-template-columns: 1fr; }
+      .brand-nav .container { gap: 1.25rem; }
+      .tone-row { flex-direction: column; gap: 0.25rem; }
+      .tone-context { flex: none; }
+      .tone-desc { flex: none; }
+      .cover-derivation .cover-thumb { flex: 0 0 200px; }
+      .msg-hierarchy .msg-name { flex: 0 0 100px; }
+    }
+
+    /* ── Responsive: Mobile ── */
+    @media (max-width: 480px) {
+      .container { padding: 0 1rem; }
+      section { padding: 2rem 0; }
+      .hero img.logo { max-width: 200px; }
+      h2 { font-size: 1rem; }
+      .palette-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+      .swatch-color { height: 52px; }
+      .logo-grid { grid-template-columns: 1fr; }
+      .spacing-row { gap: 1rem; }
+      .color-strip { height: 36px; }
+      .brand-nav a { font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="brand-nav">
+  <div class="container">
+    <span class="nav-title">Brand Guidelines</span>
+    <a href="#colors">Colors</a>
+    <a href="#typography">Typography</a>
+    <a href="#logo">Logo</a>
+    <a href="#spacing">Spacing</a>
+    <a href="#components">Components</a>
+    <a href="#regions">Regions</a>
+    <a href="#voice">Voice</a>
+    <a href="#animation">Animation</a>
+    <a href="#a11y">Accessibility</a>
+    <a href="#print">Print</a>
+    <a href="#assets">Assets</a>
+    <a href="#content-patterns">Patterns</a>
+    <a href="#tone-spectrum">Tone</a>
+    <a href="#vocabulary">Vocabulary</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <img src="grove-white.png" alt="The Grove of Tau Ceti" class="logo">
+    <h1>Brand Guidelines</h1>
+    <p>Visual identity, voice, and standards for The Grove of Tau Ceti</p>
+    <p style="margin-top:0.25rem; font-size:0.75rem; color:var(--footer-gray);">v1 -- 2026-03-15</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--                 WEB ELEMENTS               -->
+<!-- ═══════════════════════════════════════════ -->
+
+<!-- COLORS -->
+<section id="colors">
+  <div class="container">
+    <h2><span class="section-num">01</span> Colors</h2>
+    <p class="section-intro">Primary palette from CSS. Secondary and tertiary derived from cover art by Nik Wilets.</p>
+
+    <div class="color-strip">
+      <div style="background:#0c0c0c" data-label="Background"></div>
+      <div style="background:#1a1a1a" data-label="Surface"></div>
+      <div style="background:#1e2d4f" data-label="Deep Navy"></div>
+      <div style="background:#243352" data-label="Silhouette"></div>
+      <div style="background:#3d5a87" data-label="Mid Blue"></div>
+      <div style="background:#3b9eea" data-label="Accent"></div>
+      <div style="background:#7b9ab8" data-label="Slate"></div>
+      <div style="background:#85c5ff" data-label="Hover"></div>
+      <div style="background:#c9a84c" data-label="Gold"></div>
+      <div style="background:#c44a3a" data-label="Coral"></div>
+      <div style="background:#5b5878" data-label="Purple"></div>
+    </div>
+
+    <h3>Primary</h3>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#0c0c0c" data-hex="#0c0c0c"></div><div class="swatch-info"><span class="swatch-name">Background</span><span class="swatch-usage">Page bg, footer</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#1a1a1a" data-hex="#1a1a1a"></div><div class="swatch-info"><span class="swatch-name">Surface</span><span class="swatch-usage">Header, modal, bio</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#e6e6e6" data-hex="#e6e6e6"></div><div class="swatch-info"><span class="swatch-name">Text</span><span class="swatch-usage">Body text, headings</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#3b9eea" data-hex="#3b9eea"></div><div class="swatch-info"><span class="swatch-name">Accent</span><span class="swatch-usage">Links, borders, highlights</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#85c5ff" data-hex="#85c5ff"></div><div class="swatch-info"><span class="swatch-name">Accent Hover</span><span class="swatch-usage">Hover/focus states only</span></div></div>
+    </div>
+
+    <h3>Secondary (Cover-Derived)</h3>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#1e2d4f" data-hex="#1e2d4f"></div><div class="swatch-info"><span class="swatch-name">Deep Navy</span><span class="swatch-usage">Print bg, sell sheet bands</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#3d5a87" data-hex="#3d5a87"></div><div class="swatch-info"><span class="swatch-name">Mid Blue</span><span class="swatch-usage">Secondary surfaces</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#7b9ab8" data-hex="#7b9ab8"></div><div class="swatch-info"><span class="swatch-name">Slate Blue</span><span class="swatch-usage">Subheadings, secondary text</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#243352" data-hex="#243352"></div><div class="swatch-info"><span class="swatch-name">Dark Silhouette</span><span class="swatch-usage">Deep accent, overlays</span></div></div>
+    </div>
+
+    <h3>Tertiary (Warm Accents)</h3>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#c9a84c" data-hex="#c9a84c"></div><div class="swatch-info"><span class="swatch-name">Gold</span><span class="swatch-usage">Awards, featured callouts</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#c44a3a" data-hex="#c44a3a"></div><div class="swatch-info"><span class="swatch-name">Coral</span><span class="swatch-usage">Warm accent, alerts</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#5b5878" data-hex="#5b5878"></div><div class="swatch-info"><span class="swatch-name">Purple Haze</span><span class="swatch-usage">Atmospheric elements</span></div></div>
+    </div>
+
+    <h3>Utility</h3>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#999" data-hex="#999999"></div><div class="swatch-info"><span class="swatch-name">Muted</span><span class="swatch-usage">Bio text, subdued headings</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#666" data-hex="#666666"></div><div class="swatch-info"><span class="swatch-name">Footer Gray</span><span class="swatch-usage">Footer text, links</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#444" data-hex="#444444"></div><div class="swatch-info"><span class="swatch-name">Border</span><span class="swatch-usage">Dividers, image borders</span></div></div>
+    </div>
+
+    <div class="rules">
+      <h4>Usage Rules</h4>
+      <ul>
+        <li>Alternate Background and Surface between sections to create depth without borders.</li>
+        <li>Accent (#3b9eea) is the primary interactive color for links, button borders, and highlights.</li>
+        <li>Never use Accent for body text -- insufficient contrast at font-weight 200.</li>
+        <li>Reserve Gold and Coral for special callouts only. Not for general UI.</li>
+        <li>Deep Navy and Mid Blue are the primary print/marketing colors.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section id="typography">
+  <div class="container">
+    <h2><span class="section-num">02</span> Typography</h2>
+    <p class="section-intro">Dual type systems: web (Google Fonts) and print (licensed/system).</p>
+
+    <h3>Web Fonts <span class="badge badge-web">Web</span></h3>
+
+    <div class="type-specimen">
+      <div class="type-label">Heading -- Orbitron 700</div>
+      <div style="font-family:'Orbitron',sans-serif; font-weight:700; font-size:2rem;">Demeter's Not Herself Anymore</div>
+      <div class="type-meta">font-family: 'Orbitron' | weight: 700 | Use: headings, nav, buttons</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-label">Subheading -- Orbitron 500</div>
+      <div style="font-family:'Orbitron',sans-serif; font-weight:500; font-size:1.3rem;">A Debut Novel by Tobby Hagler</div>
+      <div class="type-meta">font-family: 'Orbitron' | weight: 500 | Use: subheads, section labels</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-label">Body -- Noto Sans 200</div>
+      <div style="font-family:'Noto Sans',sans-serif; font-weight:200; font-size:1rem; line-height:1.75;">Once the pride of humanity's interstellar fleet, the ESS <em>Demeter</em> is on a final voyage to Tau Ceti, where the promise of a new alliance awaits. But something stirs within the ship's rootwork, hidden and ancient, unfolding.</div>
+      <div class="type-meta">font-family: 'Noto Sans' | weight: 200 | line-height: 1.75 | Use: body copy</div>
+    </div>
+
+    <div class="type-specimen">
+      <div class="type-label">Body Emphasis -- Noto Sans 400</div>
+      <div style="font-family:'Noto Sans',sans-serif; font-weight:400; font-size:1rem;">Available to order now at Amazon, Barnes &amp; Noble, and independent bookstores.</div>
+      <div class="type-meta">font-family: 'Noto Sans' | weight: 400 | Use: emphasis, interactive labels</div>
+    </div>
+
+    <div class="rules" style="margin-top:1.5rem;">
+      <h4>Web Typography Rules</h4>
+      <ul>
+        <li>Orbitron is strictly for headings, nav, button labels, and logo text. Never for body copy.</li>
+        <li>Noto Sans 200 is the default body weight. Monitor readability on dark backgrounds.</li>
+        <li>Noto Sans 400 for emphasis and interactive labels only.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO -->
+<section id="logo">
+  <div class="container">
+    <h2><span class="section-num">03</span> Logo</h2>
+    <p class="section-intro">Wordmark "THE GROVE OF TAU CETI" in a geometric typeface. Two variants.</p>
+
+    <div class="logo-grid">
+      <div class="logo-card" style="background:var(--bg);">
+        <img src="grove-white.png" alt="White on dark">
+        <span class="bg-note">#0c0c0c</span>
+      </div>
+      <div class="logo-card" style="background:var(--deep-navy);">
+        <img src="grove-white.png" alt="White on navy">
+        <span class="bg-note">#1e2d4f</span>
+      </div>
+      <div class="logo-card" style="background:#f0f0f0;">
+        <img src="grove-black.png" alt="Black on light">
+        <span class="bg-note">#f0f0f0</span>
+      </div>
+    </div>
+
+    <div class="rules" style="margin-top:1.5rem;">
+      <h4>Logo Rules</h4>
+      <ul>
+        <li>White variant on backgrounds darker than 50% luminance.</li>
+        <li>Black variant on backgrounds lighter than 50% luminance.</li>
+        <li>Max web display width: 260px.</li>
+        <li>Keep visually balanced clear space. No formal minimum.</li>
+        <li>Do not distort, rotate, or apply effects.</li>
+        <li>Do not recreate in a different typeface.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SPACING -->
+<section id="spacing">
+  <div class="container">
+    <h2><span class="section-num">04</span> Spacing &amp; Layout</h2>
+    <p class="section-intro">Rem-based scale. Max content width 960px. Dual border-radius values.</p>
+
+    <h3>Scale</h3>
+    <div class="spacing-row">
+      <div class="spacing-item"><div class="block" style="width:16px;height:16px;"></div><span class="val">1rem</span></div>
+      <div class="spacing-item"><div class="block" style="width:24px;height:24px;"></div><span class="val">1.5rem</span></div>
+      <div class="spacing-item"><div class="block" style="width:32px;height:32px;"></div><span class="val">2rem</span></div>
+      <div class="spacing-item"><div class="block" style="width:48px;height:48px;"></div><span class="val">3rem</span></div>
+    </div>
+
+    <h3>Key Values</h3>
+    <table class="data-table">
+      <thead><tr><th>Property</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Max content width</td><td><code>960px</code></td></tr>
+        <tr><td>Header padding</td><td><code>2rem 1rem</code></td></tr>
+        <tr><td>Main content margin</td><td><code>3rem auto</code></td></tr>
+        <tr><td>Content gap</td><td><code>2rem</code></td></tr>
+        <tr><td>Nav gap</td><td><code>1rem</code></td></tr>
+        <tr><td>Button border-radius</td><td><code>4px</code></td></tr>
+        <tr><td>Card / image / modal radius</td><td><code>8px</code></td></tr>
+        <tr><td>Cover image flex</td><td><code>flex: 1 1 300px; max-width: 300px</code></td></tr>
+        <tr><td>Content area flex</td><td><code>flex: 2 1 400px</code></td></tr>
+        <tr><td>Breakpoint (mobile)</td><td><code>max-width: 768px</code></td></tr>
+        <tr><td>Breakpoint (small mobile)</td><td><code>max-width: 480px</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section id="components">
+  <div class="container">
+    <h2><span class="section-num">05</span> Components</h2>
+    <p class="section-intro">Interactive elements and their states.</p>
+
+    <div class="component-grid">
+
+      <div class="component-card">
+        <div class="card-title">Standard Buttons</div>
+        <div class="btn-row">
+          <button class="btn">Order</button>
+          <button class="btn">Subscribe</button>
+          <button class="btn">Contact</button>
+        </div>
+        <div class="type-meta" style="margin-top:0.75rem;">Orbitron | 1px solid Accent | 4px radius | hover: Accent bg, black text</div>
+      </div>
+
+      <div class="component-card">
+        <div class="card-title">Promotional Button</div>
+        <button class="btn btn-promo" style="width:100%;">
+          In Stock at All Good Books
+          <span class="subtext">Columbia, SC</span>
+        </button>
+        <div class="type-meta" style="margin-top:0.75rem;">Orbitron 700 | 2px border | glow shadow | subtext line</div>
+      </div>
+
+      <div class="component-card">
+        <div class="card-title">Disabled Button</div>
+        <div class="btn-row">
+          <button class="btn btn-disabled">Other Retailers<span class="subtext" style="display:block;font-family:'Noto Sans';font-size:0.7rem;">(coming soon)</span></button>
+        </div>
+        <div class="type-meta" style="margin-top:0.75rem;">Dashed border | 50% opacity | no pointer events</div>
+      </div>
+
+      <div class="component-card">
+        <div class="card-title">Modal Surface</div>
+        <div style="background:var(--surface);border-radius:8px;padding:1.25rem;position:relative;border:1px solid var(--border);">
+          <div style="position:absolute;top:0.5rem;right:0.75rem;color:var(--accent);font-size:1.2rem;cursor:pointer;">&times;</div>
+          <div style="font-family:'Orbitron',sans-serif;font-size:0.85rem;margin-bottom:0.75rem;">Order Now</div>
+          <div style="display:flex;gap:0.5rem;">
+            <button class="btn" style="font-size:0.75rem;padding:0.35rem 0.6rem;flex:1">Amazon</button>
+            <button class="btn" style="font-size:0.75rem;padding:0.35rem 0.6rem;flex:1">B&amp;N</button>
+          </div>
+        </div>
+        <div class="type-meta" style="margin-top:0.75rem;">Surface bg | 8px radius | close btn in Accent</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REGIONS -->
+<section id="regions">
+  <div class="container">
+    <h2><span class="section-num">06</span> Page Regions</h2>
+    <p class="section-intro">Color mapping for each section of the site.</p>
+
+    <div class="region-map">
+      <div class="region" style="background:#1a1a1a;">
+        <span class="region-name">Header / Nav</span>
+        <span class="region-colors">bg: #1a1a1a &nbsp; text: #e6e6e6 &nbsp; tagline: #3b9eea</span>
+      </div>
+      <div class="region" style="background:#0c0c0c;">
+        <span class="region-name">Main Content</span>
+        <span class="region-colors">bg: #0c0c0c &nbsp; text: #e6e6e6 &nbsp; heading: #e6e6e6</span>
+      </div>
+      <div class="region" style="background:#1a1a1a;">
+        <span class="region-name">Author Bio</span>
+        <span class="region-colors">bg: #1a1a1a &nbsp; heading: #999 &nbsp; text: #999</span>
+      </div>
+      <div class="region" style="background:#0c0c0c;">
+        <span class="region-name">Footer</span>
+        <span class="region-colors">bg: #0c0c0c &nbsp; text: #666 &nbsp; links: #666</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOICE & TONE -->
+<section id="voice">
+  <div class="container">
+    <h2><span class="section-num">07</span> Voice &amp; Tone</h2>
+    <p class="section-intro">Restrained. Cinematic. Sensory. Implied.</p>
+
+    <div class="voice-traits">
+      <div class="voice-card">
+        <strong>Restrained and observational</strong>
+        <p>The prose watches rather than pushes. Descriptions let events unfold without editorial pressure.</p>
+      </div>
+      <div class="voice-card">
+        <strong>Cinematic and sensory</strong>
+        <p>Scenes are rendered visually, through atmosphere, light, texture, and spatial awareness.</p>
+      </div>
+      <div class="voice-card">
+        <strong>Clear and controlled</strong>
+        <p>Sentences are precise and deliberate, not showy or self-consciously stylish.</p>
+      </div>
+      <div class="voice-card">
+        <strong>Implied worldbuilding</strong>
+        <p>Context does the heavy lifting. Technology and culture emerge through action, never exposition.</p>
+      </div>
+    </div>
+
+    <h3>Do's and Don'ts</h3>
+    <div class="do-dont">
+      <div class="rules">
+        <h4>Do</h4>
+        <ul>
+          <li>Let the premise speak for itself</li>
+          <li>Use concrete, sensory details</li>
+          <li>Trust the reader to infer</li>
+          <li>Keep sentences clear and controlled</li>
+          <li>Imply mystery through what is unsaid</li>
+          <li>Use italics for ship names: <em>Demeter</em></li>
+        </ul>
+      </div>
+      <div class="rules rule-dont">
+        <h4>Don't</h4>
+        <ul>
+          <li>Oversell with hyperbole</li>
+          <li>Use vague, abstract descriptions</li>
+          <li>Explain everything explicitly</li>
+          <li>Write punchy, fragmented marketing copy</li>
+          <li>Reveal too much in promotional text</li>
+          <li>Use bold or ALL CAPS for emphasis in body</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANIMATION -->
+<section id="animation">
+  <div class="container">
+    <h2><span class="section-num">08</span> Animation</h2>
+    <p class="section-intro">Sequenced entrance, pulse effect, consistent hover transitions.</p>
+
+    <table class="data-table">
+      <thead><tr><th>Animation</th><th>Duration</th><th>Easing</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>fadeIn (logo)</td><td><code>1.2s</code></td><td>ease-in-out</td><td>Logo entrance on load</td></tr>
+        <tr><td>fadeIn (content)</td><td><code>1.6s</code>, 0.4s delay</td><td>ease-in-out</td><td>Content entrance, sequenced after logo</td></tr>
+        <tr><td>cover-pulse-in</td><td><code>1.05s</code></td><td>ease-out</td><td>Cover scale + accent glow</td></tr>
+        <tr><td>cover-pulse-outline</td><td><code>1.05s</code></td><td>ease-out</td><td>Cover border ring pulse</td></tr>
+        <tr><td>Hover transitions</td><td><code>0.3s</code></td><td>ease</td><td>Button/link bg + color</td></tr>
+      </tbody>
+    </table>
+
+    <div class="rules" style="margin-top:1.5rem;">
+      <h4>Sequence</h4>
+      <ul>
+        <li>Logo fades at 0s. Content fades at 0.4s delay. Cover pulse fires after content appears.</li>
+        <li><code>ensurePrimaryFadeVisible()</code> forces visibility after animations complete and on bfcache restore.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESSIBILITY -->
+<section id="a11y">
+  <div class="container">
+    <h2><span class="section-num">09</span> Accessibility</h2>
+    <p class="section-intro">WCAG 2.2 as aspirational guideline. Incremental improvement.</p>
+
+    <div class="rules">
+      <h4>Current State</h4>
+      <ul>
+        <li>Basic alt attributes on images. No ARIA roles. No explicit focus management.</li>
+        <li>Noto Sans 200 on dark backgrounds may not meet AA contrast at all sizes.</li>
+        <li>No <code>prefers-reduced-motion</code> query implemented.</li>
+      </ul>
+    </div>
+
+    <div class="rules" style="margin-top:1rem;">
+      <h4>Direction</h4>
+      <ul>
+        <li>Add ARIA roles incrementally: <code>role="dialog"</code>, <code>aria-modal</code>, focus trapping for modals.</li>
+        <li>Ensure visible focus indicators on all interactive elements.</li>
+        <li>Consider Noto Sans 400 for small or critical text where contrast is marginal.</li>
+        <li>Add <code>prefers-reduced-motion</code> media query to respect user motion preferences.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!--                   PRINT                    -->
+<!-- ═══════════════════════════════════════════ -->
+
+<div class="print-divider">
+  <div class="container">
+    <h2>Print &amp; Production</h2>
+    <p style="color:var(--muted);font-size:0.9rem;margin-top:0.5rem;">Typography, color conversion, and production specs for physical media.</p>
+  </div>
+</div>
+
+<!-- PRINT TYPOGRAPHY -->
+<section id="print">
+  <div class="container">
+    <h2><span class="section-num">10</span> Print Typography</h2>
+    <p class="section-intro">Eurostile for titles and author name. Palatino for body copy. Never substitute web fonts.</p>
+
+    <div class="print-type-demo">
+      <div class="type-label">Title / Logo -- Eurostile Heavy <span class="badge badge-print">Print</span></div>
+      <div class="print-font-title">THE GROVE OF TAU CETI</div>
+      <div class="type-meta">Eurostile Heavy (shown as Arial Black fallback) | Titles, sell sheet headers, print logos</div>
+    </div>
+
+    <div class="print-type-demo">
+      <div class="type-label">Author Name -- Eurostile Regular <span class="badge badge-print">Print</span></div>
+      <div class="print-font-author">TOBBY HAGLER</div>
+      <div class="type-meta">Eurostile Regular (shown as Arial fallback) | Author attribution on cover, sell sheets</div>
+    </div>
+
+    <div class="print-type-demo">
+      <div class="type-label">Body Copy -- Palatino <span class="badge badge-print">Print</span></div>
+      <div class="print-font-body">Once the pride of humanity's interstellar fleet, the ESS <em>Demeter</em> is on a final voyage to Tau Ceti, where the promise of a new alliance awaits. But something stirs within the ship's rootwork, hidden and ancient, unfolding. When psychic interference from a nearby alien moon plunges <em>Demeter</em> into strange silence, an unsettling truth emerges.</div>
+      <div class="type-meta">'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif | Sell sheet body, marketing copy</div>
+    </div>
+
+    <div class="rules" style="margin-top:1.5rem;">
+      <h4>Print Typography Rules</h4>
+      <ul>
+        <li>Use Palatino for all print body copy. Never substitute Noto Sans.</li>
+        <li>Use Eurostile Heavy for print titles and logos. Never substitute Orbitron.</li>
+        <li>Use Eurostile Regular for author name attribution in print.</li>
+        <li>Web fallback stack for Palatino: <code>'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif</code></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRINT COLORS (CMYK) -->
+<section>
+  <div class="container">
+    <h2><span class="section-num">11</span> Print Colors (CMYK)</h2>
+    <p class="section-intro">CMYK equivalents for prepress. HTML output uses hex/RGB; convert via Acrobat Pro for true CMYK.</p>
+
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#0c0c0c"></div><span class="cmyk-name">Background</span><span class="cmyk-hex">#0c0c0c</span><span class="cmyk-val">C:0 M:0 Y:0 K:95</span></div>
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#1a1a1a"></div><span class="cmyk-name">Surface</span><span class="cmyk-hex">#1a1a1a</span><span class="cmyk-val">C:0 M:0 Y:0 K:90</span></div>
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#e6e6e6"></div><span class="cmyk-name">Text</span><span class="cmyk-hex">#e6e6e6</span><span class="cmyk-val">C:0 M:0 Y:0 K:10</span></div>
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#3b9eea"></div><span class="cmyk-name">Accent</span><span class="cmyk-hex">#3b9eea</span><span class="cmyk-val">C:75 M:33 Y:0 K:8</span></div>
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#1e2d4f"></div><span class="cmyk-name">Deep Navy</span><span class="cmyk-hex">#1e2d4f</span><span class="cmyk-val">C:85 M:65 Y:20 K:50</span></div>
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#3d5a87"></div><span class="cmyk-name">Mid Blue</span><span class="cmyk-hex">#3d5a87</span><span class="cmyk-val">C:70 M:45 Y:10 K:25</span></div>
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#7b9ab8"></div><span class="cmyk-name">Slate Blue</span><span class="cmyk-hex">#7b9ab8</span><span class="cmyk-val">C:45 M:20 Y:5 K:10</span></div>
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#c9a84c"></div><span class="cmyk-name">Gold</span><span class="cmyk-hex">#c9a84c</span><span class="cmyk-val">C:10 M:20 Y:75 K:5</span></div>
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#c44a3a"></div><span class="cmyk-name">Coral</span><span class="cmyk-hex">#c44a3a</span><span class="cmyk-val">C:5 M:80 Y:80 K:5</span></div>
+    <div class="cmyk-row"><div class="cmyk-swatch" style="background:#5b5878"></div><span class="cmyk-name">Purple Haze</span><span class="cmyk-hex">#5b5878</span><span class="cmyk-val">C:45 M:45 Y:20 K:30</span></div>
+  </div>
+</section>
+
+<!-- PRODUCTION SPECS -->
+<section>
+  <div class="container">
+    <h2><span class="section-num">12</span> Production Specs</h2>
+    <p class="section-intro">Dimensions for the physical book and sell sheet materials.</p>
+
+    <div class="component-grid">
+      <div class="component-card">
+        <div class="card-title">Book</div>
+        <table class="data-table">
+          <tbody>
+            <tr><td>Trim</td><td><code>5.5" x 8.5"</code></td></tr>
+            <tr><td>Spine</td><td><code>0.829"</code> (368pp)</td></tr>
+            <tr><td>Interior</td><td>Black &amp; White</td></tr>
+            <tr><td>Paper</td><td>White</td></tr>
+            <tr><td>ISBN (PB)</td><td><code>979-8-9987328-5-0</code></td></tr>
+            <tr><td>ISBN (Kindle)</td><td><code>979-8-9987328-1-2</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="component-card">
+        <div class="card-title">Sell Sheet</div>
+        <table class="data-table">
+          <tbody>
+            <tr><td>Trim</td><td><code>8.5" x 11"</code></td></tr>
+            <tr><td>Bleed</td><td><code>0.25"</code> all sides</td></tr>
+            <tr><td>PDF canvas</td><td><code>9" x 11.5"</code></td></tr>
+            <tr><td>Print</td><td>Full color</td></tr>
+            <tr><td>Crop marks</td><td>L-shaped, Accent cyan</td></tr>
+            <tr><td>Browser</td><td>Chrome only</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="component-card">
+        <div class="card-title">Print Font Stack</div>
+        <table class="data-table">
+          <tbody>
+            <tr><td>Logo / Title</td><td>Eurostile Heavy</td></tr>
+            <tr><td>Author Name</td><td>Eurostile Regular</td></tr>
+            <tr><td>Body Copy</td><td>Palatino</td></tr>
+            <tr><td>Web Fallback</td><td>Orbitron / Noto Sans</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVER ART DERIVATION -->
+<section>
+  <div class="container">
+    <h2><span class="section-num">13</span> Cover Art Color Derivation</h2>
+    <p class="section-intro">Secondary and tertiary palette colors were sampled from the cover illustration by Nik Wilets.</p>
+
+    <div class="cover-derivation">
+      <div class="cover-thumb">
+        <img src="front-cover-large.jpeg" alt="The Grove of Tau Ceti cover">
+      </div>
+      <div class="derivation-text">
+        <h3>Color Sources</h3>
+        <div class="color-source-row"><div class="mini-swatch" style="background:#1e2d4f"></div><span class="src-name">Deep Navy</span><span class="src-from">Dominant sky color</span></div>
+        <div class="color-source-row"><div class="mini-swatch" style="background:#3d5a87"></div><span class="src-name">Mid Blue</span><span class="src-from">Atmospheric mid-tones</span></div>
+        <div class="color-source-row"><div class="mini-swatch" style="background:#7b9ab8"></div><span class="src-name">Slate Blue</span><span class="src-from">Foreground / path area</span></div>
+        <div class="color-source-row"><div class="mini-swatch" style="background:#243352"></div><span class="src-name">Dark Silhouette</span><span class="src-from">Tree and forest elements</span></div>
+        <div class="color-source-row"><div class="mini-swatch" style="background:#c9a84c"></div><span class="src-name">Gold</span><span class="src-from">Planetary ring, character's boots</span></div>
+        <div class="color-source-row"><div class="mini-swatch" style="background:#c44a3a"></div><span class="src-name">Coral</span><span class="src-from">Flowers in helmet visor</span></div>
+        <div class="color-source-row"><div class="mini-swatch" style="background:#5b5878"></div><span class="src-name">Purple Haze</span><span class="src-from">Distant mountain range</span></div>
+
+        <h3 style="margin-top:1.5rem;">Art Description</h3>
+        <p style="font-size:0.85rem; color:var(--muted); line-height:1.6;">
+          Figure in spacesuit holding a sapling pot with red flowers, walking through a dark forest
+          of bare trees. Two moons and a starfield in the sky. Spaceship visible on back cover.
+          Illustrated, cinematic style. Dark blue palette with selective warm accents.
+        </p>
+        <p style="font-size:0.8rem; color:var(--footer-gray); margin-top:0.5rem;">
+          Cover art by <strong style="color:var(--muted);">Nik Wilets</strong> (nikwilets.com)
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ASSET INVENTORY -->
+<section id="assets">
+  <div class="container">
+    <h2><span class="section-num">14</span> Asset Inventory</h2>
+    <p class="section-intro">All brand assets and their locations.</p>
+
+    <h3>Logo Files</h3>
+    <table class="asset-table">
+      <thead><tr><th>Asset</th><th>Path</th><th>Format</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>White logo</td><td><code>docs/grove-white.png</code></td><td>PNG</td><td class="asset-purpose">Dark backgrounds</td></tr>
+        <tr><td>Black logo</td><td><code>docs/grove-black.png</code></td><td>PNG</td><td class="asset-purpose">Light backgrounds</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Cover Art</h3>
+    <table class="asset-table">
+      <thead><tr><th>Asset</th><th>Path</th><th>Format</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Full cover (no UPC)</td><td><code>docs/source-materials/cover_no_upc.pdf</code></td><td>PDF</td><td class="asset-purpose">Print-ready book cover wrap</td></tr>
+        <tr><td>Cover art only</td><td><code>docs/source-materials/cover_no_text_or_lines.pdf</code></td><td>PDF</td><td class="asset-purpose">Raw illustration, no text</td></tr>
+        <tr><td>Web cover (small)</td><td><code>front-cover-med.jpeg</code></td><td>JPEG, 414w</td><td class="asset-purpose">Default / mobile web</td></tr>
+        <tr><td>Web cover (medium)</td><td><code>front-cover-large.jpeg</code></td><td>JPEG, 828w</td><td class="asset-purpose">Tablet web</td></tr>
+        <tr><td>Web cover (full)</td><td><code>front-cover.jpg</code></td><td>JPEG, 6600w</td><td class="asset-purpose">Full-res, cover zoom modal</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Fonts</h3>
+    <div class="rules">
+      <h4>Web (CDN)</h4>
+      <ul>
+        <li>Orbitron 500, 700 via Google Fonts</li>
+        <li>Noto Sans 200, 400 via Google Fonts</li>
+        <li>Import: <code>https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;400&family=Orbitron:wght@500;700&display=swap</code></li>
+      </ul>
+    </div>
+    <div class="rules" style="margin-top:0.75rem;">
+      <h4>Print (System / Licensed)</h4>
+      <ul>
+        <li>Eurostile Heavy -- title / logo</li>
+        <li>Eurostile Regular -- author name</li>
+        <li>Palatino -- body copy</li>
+      </ul>
+    </div>
+
+    <h3>Other Assets</h3>
+    <table class="asset-table">
+      <thead><tr><th>Asset</th><th>Path</th><th>Format</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td>Vellum project</td><td><code>docs/source-materials/The Grove of Tau Ceti.vellum</code></td><td>Vellum</td><td class="asset-purpose">Book interior layout source</td></tr>
+        <tr><td>Print-ready interior</td><td><code>docs/source-materials/The-Grove-of-Tau-Ceti-Print.pdf</code></td><td>PDF</td><td class="asset-purpose">Print-ready book interior</td></tr>
+        <tr><td>OG preview image</td><td><code>preview-image.png</code></td><td>PNG</td><td class="asset-purpose">Social share image</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CONTENT PATTERNS -->
+<section id="content-patterns">
+  <div class="container">
+    <h2><span class="section-num">15</span> Content Patterns</h2>
+    <p class="section-intro">Recurring page structures, CTA conventions, and messaging priority.</p>
+
+    <h3>Page Structure</h3>
+
+    <div class="page-pattern">
+      <h4>Hero (Header)</h4>
+      <ul>
+        <li>Logo (grove-white.png) centered, max-width 260px</li>
+        <li>Tagline in Accent (#3b9eea) below logo</li>
+        <li>3-button nav grid: Order / Subscribe / Contact</li>
+        <li>Background: Surface (#1a1a1a)</li>
+        <li>Logo fades 1.2s, then content fades 1.6s with 0.4s delay</li>
+      </ul>
+    </div>
+
+    <div class="page-pattern">
+      <h4>Synopsis Layout (Main)</h4>
+      <ul>
+        <li>Two-column flex: cover image (left, 300px) + text (right, 400px min)</li>
+        <li>Wraps to single column at 768px</li>
+        <li>Background: Background (#0c0c0c)</li>
+        <li>Heading: Orbitron | Body: Noto Sans 200 at 1.75 line-height</li>
+      </ul>
+    </div>
+
+    <div class="page-pattern">
+      <h4>Author Bio</h4>
+      <ul>
+        <li>Full-width Surface (#1a1a1a) band</li>
+        <li>Heading: Orbitron, Muted (#999), 1.5rem</li>
+        <li>Body: Muted (#999), line-height 1.7, max-width ~640px</li>
+      </ul>
+    </div>
+
+    <div class="page-pattern">
+      <h4>Modal</h4>
+      <ul>
+        <li>Fixed overlay: rgba(0,0,0,0.8)</li>
+        <li>Content: Surface bg, 50vw width (min 33vw), 8px radius</li>
+        <li>Close button: Accent color, top-right absolute</li>
+        <li>Two modes: iframe (external URLs) or inline (cover zoom)</li>
+        <li>Fullscreen (100vw/100vh) below 768px</li>
+      </ul>
+    </div>
+
+    <h3>CTA Specifications</h3>
+
+    <table class="data-table">
+      <thead><tr><th>Variant</th><th>Font</th><th>Border</th><th>Background</th><th>Hover</th></tr></thead>
+      <tbody>
+        <tr><td>Standard</td><td>Orbitron</td><td><code>1px solid #3b9eea</code></td><td>transparent</td><td>Accent bg, black text</td></tr>
+        <tr><td>Promotional</td><td>Orbitron 700</td><td><code>2px solid #3b9eea</code></td><td><code>rgba(59,158,234,0.12)</code></td><td>Intensified glow</td></tr>
+        <tr><td>Disabled</td><td>Orbitron</td><td><code>1px dashed</code></td><td>transparent, 50% opacity</td><td>No interaction</td></tr>
+        <tr><td>Inline</td><td>Orbitron</td><td><code>1px solid #3b9eea</code></td><td>transparent, inline-block</td><td>Accent bg, black text</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Messaging Hierarchy</h3>
+    <ol class="msg-hierarchy">
+      <li><span class="msg-name">Title / Logo</span><span class="msg-desc">Always the first visual element</span></li>
+      <li><span class="msg-name">Tagline</span><span class="msg-desc">One-line hook in Accent color</span></li>
+      <li><span class="msg-name">Navigation CTAs</span><span class="msg-desc">Order / Subscribe / Contact</span></li>
+      <li><span class="msg-name">Cover Image</span><span class="msg-desc">Visual anchor for the synopsis</span></li>
+      <li><span class="msg-name">Synopsis</span><span class="msg-desc">3-4 paragraphs, restrained and atmospheric</span></li>
+      <li><span class="msg-name">Author Bio</span><span class="msg-desc">Subdued, supporting context in muted tones</span></li>
+      <li><span class="msg-name">Footer</span><span class="msg-desc">Copyright, minimal</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- TONE SPECTRUM -->
+<section id="tone-spectrum">
+  <div class="container">
+    <h2><span class="section-num">16</span> Tone Spectrum</h2>
+    <p class="section-intro">How formality and tone shift across contexts.</p>
+
+    <div class="tone-row">
+      <span class="tone-context">Book synopsis</span>
+      <span class="tone-desc">Atmospheric, restrained, mysterious</span>
+      <span class="tone-example">"Something stirs within the ship's rootwork, hidden and ancient, unfolding."</span>
+    </div>
+    <div class="tone-row">
+      <span class="tone-context">Sell sheet</span>
+      <span class="tone-desc">Professional, confident, concise</span>
+      <span class="tone-example">Clear pitch copy that respects the buyer's time and intelligence.</span>
+    </div>
+    <div class="tone-row">
+      <span class="tone-context">Website UI</span>
+      <span class="tone-desc">Minimal, clean</span>
+      <span class="tone-example">"Order" -- "Subscribe" -- "Contact"</span>
+    </div>
+    <div class="tone-row">
+      <span class="tone-context">Author bio</span>
+      <span class="tone-desc">Warm but understated</span>
+      <span class="tone-example">"...beside a quiet pond in a nearly unhaunted forest."</span>
+    </div>
+    <div class="tone-row">
+      <span class="tone-context">Social media</span>
+      <span class="tone-desc">Slightly warmer, still restrained</span>
+      <span class="tone-example">Evocative one-liners from the book. No hype, no exclamation marks.</span>
+    </div>
+
+    <h3>Audience</h3>
+    <div class="component-grid" style="margin-top:1rem;">
+      <div class="component-card">
+        <div class="card-title">Primary</div>
+        <p style="font-size:0.85rem; color:var(--muted);">Adult science fiction readers who appreciate literary-leaning genre fiction, atmospheric worldbuilding, and character-driven narratives. They respond to craft over spectacle.</p>
+      </div>
+      <div class="component-card">
+        <div class="card-title">Secondary</div>
+        <p style="font-size:0.85rem; color:var(--muted);">Bookstore owners and buyers evaluating whether to stock the title. Materials for this audience must be professional, concise, and respect their time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOCABULARY -->
+<section id="vocabulary">
+  <div class="container">
+    <h2><span class="section-num">17</span> Vocabulary &amp; Language</h2>
+    <p class="section-intro">Word choices, preferred terms, and language to avoid.</p>
+
+    <div class="do-dont">
+      <div class="rules">
+        <h4>Preferred Terms</h4>
+        <ul>
+          <li>Specific, concrete nouns over abstract ones</li>
+          <li>Sensory verbs: stirs, plunges, unfolds, emerges, awakens</li>
+          <li>Ship names italicized: <em>Demeter</em></li>
+          <li>"Debut novel" for the first book</li>
+          <li>"Speculative fiction" as the genre umbrella</li>
+          <li>"Emerges" rather than "is revealed"</li>
+        </ul>
+      </div>
+      <div class="rules rule-dont">
+        <h4>Terms to Avoid</h4>
+        <ul>
+          <li>Exclamation-heavy marketing: "Amazing!", "Don't miss!"</li>
+          <li>Over-explanation of sci-fi concepts</li>
+          <li>Cliched genre openings: "In a world where..."</li>
+          <li>Empty superlatives: "utterly unique", "unlike anything"</li>
+          <li>Fragmented, punchy copy -- the voice is controlled, not staccato</li>
+          <li>Bold or ALL CAPS for emphasis in body copy</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Formality Level</h3>
+    <div class="rules" style="margin-top:0.5rem;">
+      <h4>Scale</h4>
+      <ul>
+        <li>Neutral to slightly formal. Literary but accessible.</li>
+        <li>No academic jargon. No casual slang.</li>
+        <li>Genre vocabulary (telepathic, interstellar, sentient, rootwork) used naturally without exposition.</li>
+        <li>Do not apologize for or distance from the genre.</li>
+      </ul>
+    </div>
+
+    <h3>Writing Examples</h3>
+    <div class="component-grid" style="margin-top:1rem;">
+      <div class="component-card">
+        <div class="card-title">Good</div>
+        <p style="font-size:0.85rem; font-style:italic; color:var(--text); line-height:1.6;">
+          "Once the pride of humanity's interstellar fleet, the ESS <em>Demeter</em> is on a final voyage
+          to Tau Ceti. But something stirs within the ship's rootwork, hidden and ancient, unfolding."
+        </p>
+        <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
+          Restrained. Sensory. Lets the reader's imagination fill the gaps.
+        </p>
+      </div>
+      <div class="component-card">
+        <div class="card-title" style="color:var(--coral);">Avoid</div>
+        <p style="font-size:0.85rem; font-style:italic; color:var(--muted); line-height:1.6;">
+          "In an incredible journey through the stars, the amazing crew of the Demeter must fight for
+          their very survival in this thrilling, action-packed, must-read debut!"
+        </p>
+        <p style="font-size:0.75rem; color:var(--muted); margin-top:0.5rem;">
+          Hyperbolic. Empty superlatives. Fragmented marketing tone.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="guide-footer">
+  The Grove of Tau Ceti Brand Guidelines v1 -- 2026-03-15<br>
+  Generated by brand-guidelines-creator
+</div>
+
+</body>
+</html>
