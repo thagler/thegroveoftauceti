@@ -23,6 +23,12 @@
       --footer-gray: #666;
       --border: #444;
       --max-w: 1440px;
+
+      /* Spacing scale */
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 2rem;
+      --space-lg: 4rem;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,11 +52,24 @@
     }
 
     section {
-      padding: 4rem 0;
+      padding: var(--space-lg) 0;
       border-bottom: 1px solid var(--border);
     }
 
     section:last-child { border-bottom: none; }
+
+    /* Flow rhythm: consistent gap between all adjacent content blocks */
+    .container > * + *,
+    .container > * > * + * {
+      margin-top: var(--space-sm);
+    }
+
+    /* Headings get more breathing room above */
+    .container h2 { margin-top: 0; }
+    .container h3 + * { margin-top: var(--space-sm); }
+    .container * + h3 { margin-top: var(--space-md); }
+    .container h2 + .section-intro { margin-top: var(--space-xs); }
+    .container .section-intro + * { margin-top: var(--space-md); }
 
     /* ── Nav ── */
     .brand-nav {
@@ -103,7 +122,7 @@
     .hero img.logo {
       max-width: 300px;
       width: 100%;
-      margin-bottom: 1rem;
+      margin-bottom: var(--space-sm);
     }
 
     .hero h1 {
@@ -113,7 +132,7 @@
       color: var(--accent);
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--space-xs);
     }
 
     .hero p {
@@ -127,18 +146,16 @@
       font-weight: 700;
       font-size: 1.4rem;
       color: var(--accent);
-      margin-bottom: 0.5rem;
     }
 
     h2 .section-num {
       color: var(--border);
-      margin-right: 0.5rem;
+      margin-right: var(--space-xs);
     }
 
     .section-intro {
       color: var(--muted);
       font-size: 0.9rem;
-      margin-bottom: 2.5rem;
       max-width: 640px;
     }
 
@@ -149,10 +166,7 @@
       color: var(--slate);
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      margin: 2rem 0 1rem;
     }
-
-    h3:first-of-type { margin-top: 0; }
 
     /* ── Color swatches ── */
     .color-strip {
@@ -161,7 +175,6 @@
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid var(--border);
-      margin-bottom: 2rem;
     }
 
     .color-strip div {
@@ -185,8 +198,7 @@
     .palette-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-bottom: 1rem;
+      gap: var(--space-sm);
     }
 
     .swatch {
@@ -235,7 +247,6 @@
       border-radius: 8px;
       border: 1px solid var(--border);
       padding: 1.25rem 1.5rem;
-      margin-top: 1.5rem;
     }
 
     .rules h4 {
@@ -245,7 +256,7 @@
       color: var(--slate);
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      margin-bottom: 0.75rem;
+      margin-bottom: var(--space-xs);
     }
 
     .rules ul {
@@ -282,7 +293,6 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.5rem;
-      margin-bottom: 1rem;
     }
 
     .type-label {
@@ -290,14 +300,14 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--muted);
-      margin-bottom: 0.5rem;
+      margin-bottom: var(--space-xs);
     }
 
     .type-meta {
       font-size: 0.7rem;
       font-family: monospace;
       color: var(--footer-gray);
-      margin-top: 0.5rem;
+      margin-top: var(--space-xs);
     }
 
     .badge {
@@ -319,7 +329,7 @@
     .component-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      gap: var(--space-sm);
     }
 
     .component-card {
@@ -334,7 +344,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--muted);
-      margin-bottom: 1rem;
+      margin-bottom: var(--space-sm);
     }
 
     /* Live button demos */
@@ -422,7 +432,7 @@
     .logo-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: var(--space-sm);
     }
 
     .logo-card {
@@ -450,7 +460,7 @@
     /* ── Spacing demo ── */
     .spacing-row {
       display: flex;
-      gap: 1.5rem;
+      gap: var(--space-sm);
       flex-wrap: wrap;
       align-items: flex-end;
     }
@@ -511,14 +521,14 @@
     .do-dont {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: var(--space-sm);
     }
 
     /* ── Voice card ── */
     .voice-traits {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
+      gap: var(--space-sm);
     }
 
     .voice-card {
@@ -542,7 +552,7 @@
     /* ── Print section ── */
     .print-divider {
       text-align: center;
-      padding: 3rem 0;
+      padding: var(--space-lg) 0;
       border-bottom: 2px solid var(--deep-navy);
     }
 
@@ -556,7 +566,6 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.5rem;
-      margin-bottom: 1rem;
     }
 
     .print-font-title {
@@ -763,7 +772,6 @@
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 1.25rem 1.5rem;
-      margin-bottom: 1rem;
     }
 
     .page-pattern h4 {
@@ -813,8 +821,8 @@
 
     /* ── Responsive: Tablet ── */
     @media (max-width: 768px) {
+      :root { --space-lg: 3rem; --space-md: 1.5rem; }
       .container { padding: 0 1.5rem; }
-      section { padding: 3rem 0; }
       .hero { padding: 3rem 0 2.5rem; }
       h2 { font-size: 1.2rem; }
       .palette-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
@@ -832,8 +840,8 @@
 
     /* ── Responsive: Mobile ── */
     @media (max-width: 480px) {
+      :root { --space-lg: 2rem; --space-md: 1rem; }
       .container { padding: 0 1rem; }
-      section { padding: 2rem 0; }
       .hero img.logo { max-width: 200px; }
       h2 { font-size: 1rem; }
       .palette-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
@@ -978,7 +986,7 @@
       <div class="type-meta">font-family: 'Noto Sans' | weight: 400 | Use: emphasis, interactive labels</div>
     </div>
 
-    <div class="rules" style="margin-top:1.5rem;">
+    <div class="rules">
       <h4>Web Typography Rules</h4>
       <ul>
         <li>Orbitron is strictly for headings, nav, button labels, and logo text. Never for body copy.</li>
@@ -1010,7 +1018,7 @@
       </div>
     </div>
 
-    <div class="rules" style="margin-top:1.5rem;">
+    <div class="rules">
       <h4>Logo Rules</h4>
       <ul>
         <li>White variant on backgrounds darker than 50% luminance.</li>
@@ -1073,7 +1081,7 @@
           <button class="btn">Subscribe</button>
           <button class="btn">Contact</button>
         </div>
-        <div class="type-meta" style="margin-top:0.75rem;">Orbitron | 1px solid Accent | 4px radius | hover: Accent bg, black text</div>
+        <div class="type-meta">Orbitron | 1px solid Accent | 4px radius | hover: Accent bg, black text</div>
       </div>
 
       <div class="component-card">
@@ -1082,7 +1090,7 @@
           In Stock at All Good Books
           <span class="subtext">Columbia, SC</span>
         </button>
-        <div class="type-meta" style="margin-top:0.75rem;">Orbitron 700 | 2px border | glow shadow | subtext line</div>
+        <div class="type-meta">Orbitron 700 | 2px border | glow shadow | subtext line</div>
       </div>
 
       <div class="component-card">
@@ -1090,7 +1098,7 @@
         <div class="btn-row">
           <button class="btn btn-disabled">Other Retailers<span class="subtext" style="display:block;font-family:'Noto Sans';font-size:0.7rem;">(coming soon)</span></button>
         </div>
-        <div class="type-meta" style="margin-top:0.75rem;">Dashed border | 50% opacity | no pointer events</div>
+        <div class="type-meta">Dashed border | 50% opacity | no pointer events</div>
       </div>
 
       <div class="component-card">
@@ -1103,7 +1111,7 @@
             <button class="btn" style="font-size:0.75rem;padding:0.35rem 0.6rem;flex:1">B&amp;N</button>
           </div>
         </div>
-        <div class="type-meta" style="margin-top:0.75rem;">Surface bg | 8px radius | close btn in Accent</div>
+        <div class="type-meta">Surface bg | 8px radius | close btn in Accent</div>
       </div>
 
     </div>
@@ -1207,7 +1215,7 @@
       </tbody>
     </table>
 
-    <div class="rules" style="margin-top:1.5rem;">
+    <div class="rules">
       <h4>Sequence</h4>
       <ul>
         <li>Logo fades at 0s. Content fades at 0.4s delay. Cover pulse fires after content appears.</li>
@@ -1232,7 +1240,7 @@
       </ul>
     </div>
 
-    <div class="rules" style="margin-top:1rem;">
+    <div class="rules">
       <h4>Direction</h4>
       <ul>
         <li>Add ARIA roles incrementally: <code>role="dialog"</code>, <code>aria-modal</code>, focus trapping for modals.</li>
@@ -1279,7 +1287,7 @@
       <div class="type-meta">'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif | Sell sheet body, marketing copy</div>
     </div>
 
-    <div class="rules" style="margin-top:1.5rem;">
+    <div class="rules">
       <h4>Print Typography Rules</h4>
       <ul>
         <li>Use Palatino for all print body copy. Never substitute Noto Sans.</li>
@@ -1380,7 +1388,7 @@
         <div class="color-source-row"><div class="mini-swatch" style="background:#c44a3a"></div><span class="src-name">Coral</span><span class="src-from">Flowers in helmet visor</span></div>
         <div class="color-source-row"><div class="mini-swatch" style="background:#5b5878"></div><span class="src-name">Purple Haze</span><span class="src-from">Distant mountain range</span></div>
 
-        <h3 style="margin-top:1.5rem;">Art Description</h3>
+        <h3>Art Description</h3>
         <p style="font-size:0.85rem; color:var(--muted); line-height:1.6;">
           Figure in spacesuit holding a sapling pot with red flowers, walking through a dark forest
           of bare trees. Two moons and a starfield in the sky. Spaceship visible on back cover.
@@ -1430,7 +1438,7 @@
         <li>Import: <code>https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;400&family=Orbitron:wght@500;700&display=swap</code></li>
       </ul>
     </div>
-    <div class="rules" style="margin-top:0.75rem;">
+    <div class="rules">
       <h4>Print (System / Licensed)</h4>
       <ul>
         <li>Eurostile Heavy -- title / logo</li>
@@ -1558,7 +1566,7 @@
     </div>
 
     <h3>Audience</h3>
-    <div class="component-grid" style="margin-top:1rem;">
+    <div class="component-grid">
       <div class="component-card">
         <div class="card-title">Primary</div>
         <p style="font-size:0.85rem; color:var(--muted);">Adult science fiction readers who appreciate literary-leaning genre fiction, atmospheric worldbuilding, and character-driven narratives. They respond to craft over spectacle.</p>
@@ -1603,7 +1611,7 @@
     </div>
 
     <h3>Ship Name Formatting (CMOS)</h3>
-    <div class="rules" style="margin-top:0.5rem;">
+    <div class="rules">
       <h4>Rules</h4>
       <ul>
         <li>Italicize the ship name only. Prefixes (ESS, USS, HMS) remain roman. The possessive <em>'s</em> also remains roman.<br><span style="color:var(--muted); font-size:0.8rem;">Example: ESS <em>Demeter</em>'s crew &nbsp; (CMOS 17th ed., 8.116)</span></li>
@@ -1613,7 +1621,7 @@
     </div>
 
     <h3>Formality Level</h3>
-    <div class="rules" style="margin-top:0.5rem;">
+    <div class="rules">
       <h4>Scale</h4>
       <ul>
         <li>Neutral to slightly formal. Literary but accessible.</li>
@@ -1624,7 +1632,7 @@
     </div>
 
     <h3>Writing Examples</h3>
-    <div class="component-grid" style="margin-top:1rem;">
+    <div class="component-grid">
       <div class="component-card">
         <div class="card-title">Good</div>
         <p style="font-size:0.85rem; font-style:italic; color:var(--text); line-height:1.6;">
