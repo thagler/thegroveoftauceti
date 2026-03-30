@@ -26,6 +26,23 @@ function closeModal() {
   document.getElementById('modal').style.display = 'none';
 }
 
+function trackClick(el) {
+  const eventName = el.getAttribute('data-track-event');
+  if (!eventName || typeof window.gtag !== 'function') {
+    return;
+  }
+
+  const destination = el.getAttribute('href') || el.getAttribute('data-modal-url') || '';
+  const label = el.getAttribute('data-track-label') || el.textContent.trim();
+  const location = el.getAttribute('data-track-location') || window.location.pathname;
+
+  window.gtag('event', eventName, {
+    label,
+    destination,
+    location
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const mainEl = document.querySelector('main');
   const logoEl = document.querySelector('header img.logo');
@@ -63,6 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
     el.addEventListener('click', () => {
       const value = el.getAttribute('data-modal');
       openModal(value);
+    });
+  });
+
+  document.querySelectorAll('[data-track-event]').forEach(el => {
+    el.addEventListener('click', () => {
+      trackClick(el);
     });
   });
 
