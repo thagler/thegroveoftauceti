@@ -32,14 +32,14 @@ function trackClick(el) {
     return;
   }
 
-  const destination = el.getAttribute('href') || el.getAttribute('data-modal-url') || '';
-  const label = el.getAttribute('data-track-label') || el.textContent.trim();
-  const location = el.getAttribute('data-track-location') || window.location.pathname;
+  const linkUrl = el.getAttribute('href') || el.getAttribute('data-modal-url') || '';
+  const linkText = el.getAttribute('data-track-label') || el.textContent.trim();
+  const linkLocation = el.getAttribute('data-track-location') || window.location.pathname;
 
   window.gtag('event', eventName, {
-    label,
-    destination,
-    location
+    link_text: linkText,
+    link_url: linkUrl,
+    link_location: linkLocation
   });
 }
 
