@@ -156,7 +156,7 @@ Used for: V, Hawthorne, Rowan, Parker, Hargreaves, Bekhti, Hector.
 
 - **V (Violet "V" Sandoval)** — Origin: Galway, Earth. Rank: Specialist. Specialty: Systems Integration. Flag: `DRUID AFFILIATION · LEGAL`. Restricted notation: succession status as heir apparent to the Grand Coven of Druids (her elder sister Ris is deceased; her mother — referred to by V as "Muther," Irish slang and an intentional slight — is the current High Priestess). This flag is not visible to V.
 - **Hawthorne** — Special dispensation status. Rank field: `Special Dispensation`. Flag: `DRUID AFFILIATION · LEGAL`. Known for loquentes rootwork at a level of renown that earns her special Fleet authorization outside normal rank hierarchy.
-- **Hector** — Matelot. Skipper of the Persephone dropship; commanding officer of the Brigid landing party that recovered Merion. Short dossier reflects his rank and minor character status, not redaction. Co-host of the Signal 9 audiocast alongside Parker.
+- **Hector** — Matelot. Skipper of the Persephone dropship; commanding officer of the Brigid landing party. Short dossier reflects his rank and minor character status, not redaction. Co-host of the Signal 9 audiocast alongside Parker.
 
 ---
 
@@ -179,7 +179,7 @@ Identical structure to Template 1 with three additions:
 
 **Specimen block** (non-standard, inserted between role line and bio):
 A two-column grid labeled `SPECIMEN DATA — INSERTED PER XENOBOTANY PROTOCOL` containing:
-- Taxonomy: `Unclassified · Brigid flora · sole recovered specimen`
+- Taxonomy: `Unclassified · Brigid flora · sole recovered specimen — retrieved by Spc. Sandoval`
 - Morphology: `Sapling, approx. 0.4m. Burgundy foliage. Active growth noted.`
 - Housing: `Sample Container 7-C, Xenobotany Lab, Deck 4`
 - Substrate: `Brigid regolith, original collection. Do not substitute.`
