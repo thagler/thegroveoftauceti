@@ -788,8 +788,9 @@ main.arch-main {
     align-items: flex-start;
   }
 
-  .arch-name      { font-size: 1.3rem; }
-  .arch-ship-name { font-size: 1.4rem; }
+  .arch-name          { font-size: 1.3rem; }
+  .arch-ship-name     { font-size: 1.4rem; }
+  .arch-ext-band-name { font-size: 1.3rem; }
 
   .arch-specimen-block {
     grid-template-columns: 1fr;
