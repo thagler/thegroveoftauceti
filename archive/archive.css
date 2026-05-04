@@ -110,6 +110,11 @@ main.arch-main {
   border-bottom-color: #1a2540;
 }
 
+.arch-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
 .arch-meta-key {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.72rem;
@@ -798,6 +803,10 @@ main.arch-main {
 
   .arch-ext-meta {
     grid-template-columns: 1fr;
+  }
+
+  .arch-children {
+    padding: 0.9rem 1rem;
   }
 
   .arch-index-table th:nth-child(3),
