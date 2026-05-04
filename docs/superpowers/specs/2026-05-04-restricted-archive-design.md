@@ -122,7 +122,7 @@ Top border: 2px solid `--accent-color`. Background: `#1a1a1a`.
 
 ### Template 1 — Personnel (standard)
 
-Used for: V, Hawthorne, Rowan, Parker, Hargraves, Bekhti, Hector.
+Used for: V, Hawthorne, Rowan, Parker, Hargreaves, Bekhti, Hector.
 
 **Header strip** (background `#0f1520`, border-bottom `#1e2d4f`):
 
@@ -156,7 +156,7 @@ Used for: V, Hawthorne, Rowan, Parker, Hargraves, Bekhti, Hector.
 
 - **V (Violet "V" Sandoval)** — Origin: Galway, Earth. Rank: Specialist. Specialty: Systems Integration. Flag: `DRUID AFFILIATION · LEGAL`. Restricted notation: succession status as heir apparent to the Grand Coven of Druids (her elder sister Ris is deceased; her mother — referred to by V as "Muther," Irish slang and an intentional slight — is the current High Priestess). This flag is not visible to V.
 - **Hawthorne** — Special dispensation status. Rank field: `Special Dispensation`. Flag: `DRUID AFFILIATION · LEGAL`. Known for loquentes rootwork at a level of renown that earns her special Fleet authorization outside normal rank hierarchy.
-- **Hector** — Matelot (lower-deck crew). Short dossier reflects minimal official record, not redaction or restriction. Co-host of the Signal 9 audiocast alongside Parker.
+- **Hector** — Matelot. Skipper of the Persephone dropship; commanding officer of the Brigid landing party that recovered Merion. Short dossier reflects his rank and minor character status, not redaction. Co-host of the Signal 9 audiocast alongside Parker.
 
 ---
 
@@ -201,7 +201,7 @@ Used for: Demeter.
 | Status | Active — Transit |
 | Class | Frigate (FF) |
 | Commission | [stardate TBD] |
-| Captain of Record | John Hargreaves (confirm spelling: roster has "Hargraves") |
+| Captain of Record | John Hargreaves |
 | Conscience | `Organic · Active` — displayed in gold/warning color |
 | Flags | `ORGANIC CONSCIENCE · FLAGGED` |
 
@@ -291,11 +291,9 @@ Ship name formatting per CMOS 17th ed.: ESS *Demeter* (prefix roman, name italic
 
 ## Open Items (for implementation)
 
-- Confirm spelling: "Hargreaves" (Captain) or "Hargraves" (roster) — used in both Demeter's vessel registry and as a character dossier
 - Demeter commission stardate
-- Full character roster details for Rowan, Parker, Hargraves, Bekhti
+- Full character roster details for Rowan, Parker, Hargreaves, Bekhti
 - Whether any characters besides V have restricted notation blocks
-- Whether Hector's sparse record is in-universe (expunged/restricted) or just minimal
 - `tobbyhagler.com/card` copy — exact in-universe text
 - Audio hosting decision for Signal 9 (SoundCloud embed, direct file, or transcript-only fallback)
 - Audio format decision for Captains of Old (transcript-only vs. actual audio)
