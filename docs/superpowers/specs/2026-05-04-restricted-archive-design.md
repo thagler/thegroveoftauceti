@@ -156,7 +156,7 @@ Used for: V, Hawthorne, Rowan, Parker, Hargraves, Bekhti, Hector.
 
 - **V (Violet "V" Sandoval)** — Origin: Galway, Earth. Rank: Specialist. Specialty: Systems Integration. Flag: `DRUID AFFILIATION · LEGAL`. Restricted notation: succession status as heir apparent to the Grand Coven of Druids (her elder sister Ris is deceased; her mother — referred to by V as "Muther," Irish slang and an intentional slight — is the current High Priestess). This flag is not visible to V.
 - **Hawthorne** — Special dispensation status. Rank field: `Special Dispensation`. Flag: `DRUID AFFILIATION · LEGAL`. Known for loquentes rootwork at a level of renown that earns her special Fleet authorization outside normal rank hierarchy.
-- **Hector** — Intentionally brief dossier. Records sparse; reason in-universe TBD (expunged, restricted, or simply limited).
+- **Hector** — Matelot (lower-deck crew). Short dossier reflects minimal official record, not redaction or restriction. Co-host of the Signal 9 audiocast alongside Parker.
 
 ---
 
@@ -201,7 +201,7 @@ Used for: Demeter.
 | Status | Active — Transit |
 | Class | Frigate (FF) |
 | Commission | [stardate TBD] |
-| Captain of Record | [name TBD] |
+| Captain of Record | John Hargreaves (confirm spelling: roster has "Hargraves") |
 | Conscience | `Organic · Active` — displayed in gold/warning color |
 | Flags | `ORGANIC CONSCIENCE · FLAGGED` |
 
@@ -239,7 +239,7 @@ Tone: feels like a Fleet archivist pulled this from a public database and filed 
 All three locked streams share the same locked card treatment on the hub. When built out, each gets its own index and entry format:
 
 **Signal 9** (`/archive/signal-9/`)
-Informal field log transmissions from two crew members. Slightly weird/anomalous tone. Feed-style index (reverse chronological). Each entry: transmission ID, sender, stardate, body text. Short, incomplete, observational.
+Informal audiocast recorded by Hector and Parker, two matelots (lower-deck crew) aboard the *Demeter*. Slightly weird/anomalous tone. Feed-style index (reverse chronological). Each entry: episode number, transmission ID, stardate, audio embed or player, transcript. Short, incomplete, observational. Contrast with the formal Fleet register of Captains of Old.
 
 **Captains of Old** (`/archive/captains/`)
 Archival Fleet-style propaganda audiocasts. Each entry: title, episode number, transcript or summary, audio embed (if audio is produced). Formal, slightly self-congratulatory Fleet tone — contrast with the Signal 9 informality.
@@ -291,11 +291,11 @@ Ship name formatting per CMOS 17th ed.: ESS *Demeter* (prefix roman, name italic
 
 ## Open Items (for implementation)
 
-- Captain of Record name for Demeter
+- Confirm spelling: "Hargreaves" (Captain) or "Hargraves" (roster) — used in both Demeter's vessel registry and as a character dossier
 - Demeter commission stardate
 - Full character roster details for Rowan, Parker, Hargraves, Bekhti
 - Whether any characters besides V have restricted notation blocks
 - Whether Hector's sparse record is in-universe (expunged/restricted) or just minimal
 - `tobbyhagler.com/card` copy — exact in-universe text
-- Signal 9 sender identities (which two crew members write the logs)
+- Audio hosting decision for Signal 9 (SoundCloud embed, direct file, or transcript-only fallback)
 - Audio format decision for Captains of Old (transcript-only vs. actual audio)
