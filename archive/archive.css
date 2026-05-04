@@ -1,0 +1,806 @@
+/* === Archive CSS Variables ============================================= */
+:root {
+  --gold: #c9a84c;
+  --coral: #c44a3a;
+  --navy-deep: #0a1020;
+  --navy-mid: #0f1520;
+  --navy-border: #1e2d4f;
+}
+
+/* === Main layout override ============================================== */
+main.arch-main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+  opacity: 1;
+  animation: none;
+}
+
+/* === Dossier page chrome (breadcrumb + file ID) ======================== */
+.arch-chrome {
+  background: #1a1a1a;
+  border-bottom: 2px solid var(--accent-color);
+  padding: 1rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.arch-crumb {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  color: #555;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.arch-crumb a {
+  color: #555;
+  text-decoration: none;
+}
+
+.arch-crumb a:hover {
+  color: var(--accent-color);
+}
+
+.arch-crumb-sep {
+  margin: 0 0.4em;
+  color: #333;
+}
+
+.arch-crumb-current {
+  color: var(--accent-color);
+}
+
+.arch-file-id {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  color: #444;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+/* === Hub chrome (system status header) ================================= */
+.arch-hub-chrome {
+  background: #1a1a1a;
+  border-bottom: 2px solid var(--accent-color);
+  padding: 1.2rem 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.arch-system-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.arch-access-badge {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.78rem;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 3px 9px;
+  border-radius: 2px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* === Meta strip ======================================================== */
+.arch-meta-strip {
+  background: var(--navy-mid);
+  border-bottom: 1px solid var(--navy-border);
+  padding: 1.08rem 1.8rem;
+  display: flex;
+  gap: 2.7rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.arch-meta-strip.vessel {
+  background: var(--navy-deep);
+  border-bottom-color: #1a2540;
+}
+
+.arch-meta-key {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.72rem;
+  color: #3d5a87;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.22rem;
+}
+
+.arch-meta-val {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.3;
+}
+
+.arch-meta-val.accent {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+}
+
+.arch-meta-val.warning {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.88rem;
+  color: var(--gold);
+}
+
+.arch-meta-val.strained {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.arch-flag-badge {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  border-radius: 2px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 0.26rem;
+  width: fit-content;
+}
+
+.arch-flag-badge + .arch-flag-badge {
+  margin-top: 0.36rem;
+}
+
+.arch-flag-badge.pending {
+  border-color: #555;
+  color: #555;
+}
+
+/* === Type mismatch notice (Template 2) ================================= */
+.arch-mismatch {
+  background: rgba(201,168,76,0.08);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  padding: 0.6rem 1.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.arch-mismatch-icon {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 0.08rem;
+}
+
+.arch-mismatch-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  color: rgba(201,168,76,0.65);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.6;
+}
+
+/* === Body ============================================================== */
+.arch-body {
+  padding: 1.52rem 1.8rem;
+}
+
+/* === Personnel name / role ============================================= */
+.arch-name {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.14rem;
+}
+
+.arch-name-alias {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 200;
+  font-size: 1.05rem;
+  color: #555;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.14rem;
+}
+
+.arch-role {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.84rem;
+  color: #7b9ab8;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.26rem;
+}
+
+.arch-role-note {
+  font-size: 0.96rem;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 1.08rem;
+  padding-bottom: 1.08rem;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.arch-role-divider {
+  margin-bottom: 1.08rem;
+  padding-bottom: 1.08rem;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+/* === Vessel name ======================================================= */
+.arch-ship-name {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--text-color);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.1rem;
+}
+
+.arch-ship-registry {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: var(--accent-color);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.1rem;
+}
+
+.arch-ship-class {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.84rem;
+  color: #555;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.18rem;
+  padding-bottom: 1.18rem;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+/* === Bio =============================================================== */
+.arch-bio {
+  font-size: 1.08rem;
+  color: #999;
+  line-height: 1.75;
+  margin-bottom: 1.34rem;
+}
+
+/* === Specimen block (Template 2) ======================================= */
+.arch-specimen-block {
+  background: #0f0f0f;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  padding: 0.9rem 1.34rem;
+  margin-bottom: 1.18rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.72rem 2.26rem;
+}
+
+.arch-specimen-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  grid-column: 1 / -1;
+  margin-bottom: 0.18rem;
+}
+
+.arch-spec-key {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.14rem;
+}
+
+.arch-spec-val {
+  font-size: 0.93rem;
+  color: #777;
+  line-height: 1.4;
+}
+
+.arch-spec-val em {
+  color: #999;
+  font-style: normal;
+}
+
+/* === Children block (Template 3 — vessel) ============================== */
+.arch-children {
+  background: #0d1825;
+  border: 1px solid var(--navy-border);
+  border-radius: 4px;
+  padding: 1.08rem 1.34rem;
+  margin-bottom: 1.18rem;
+}
+
+.arch-children-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  color: #3d5a87;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.72rem;
+}
+
+.arch-child-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1.34rem;
+  padding: 0.46rem 0;
+  border-bottom: 1px solid #111e30;
+}
+
+.arch-child-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.arch-child-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  color: #7b9ab8;
+  letter-spacing: 0.04em;
+  flex: 0 0 120px;
+}
+
+.arch-child-desc {
+  font-size: 0.9rem;
+  color: #555;
+  flex: 1;
+}
+
+.arch-child-status {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  color: var(--accent-color);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* === Annotations (Layer 2 — gold) ====================================== */
+.arch-annotations {
+  background: rgba(201,168,76,0.06);
+  border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 4px;
+  padding: 1.08rem 1.34rem;
+  margin-bottom: 1.08rem;
+}
+
+.arch-annot-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.62rem;
+}
+
+.arch-annot-entry {
+  font-size: 1.02rem;
+  color: rgba(201,168,76,0.75);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 0.54rem;
+  padding-bottom: 0.54rem;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+
+.arch-annot-entry:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.arch-annot-source {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: rgba(201,168,76,0.4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  display: block;
+  margin-top: 0.18rem;
+  font-style: normal;
+}
+
+/* === Restricted notation (Layer 3 — coral, soft lock) ================== */
+.arch-restricted {
+  border: 1px solid rgba(196,74,58,0.4);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 1.08rem;
+}
+
+.arch-restricted-header {
+  background: rgba(196,74,58,0.12);
+  border-bottom: 1px solid rgba(196,74,58,0.3);
+  padding: 0.62rem 1.34rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.arch-restricted-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  color: var(--coral);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.arch-restricted-tier {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: rgba(196,74,58,0.5);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.arch-restricted-body {
+  padding: 0.9rem 1.34rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.62rem;
+  filter: blur(3.5px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.arch-redact-line {
+  height: 10px;
+  background: rgba(196,74,58,0.18);
+  border-radius: 2px;
+}
+
+.arch-redact-line.short { width: 58%; }
+.arch-redact-line.med   { width: 80%; }
+.arch-redact-line.full  { width: 100%; }
+
+/* === Hub stream grid =================================================== */
+.arch-hub-body {
+  padding: 2rem 1.8rem;
+}
+
+.arch-hub-crumb {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  color: #555;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.arch-stream-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.arch-stream-card {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 4px;
+  padding: 1.34rem;
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+  transition: border-color 0.2s;
+}
+
+.arch-stream-card:hover {
+  border-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+.arch-stream-card.locked {
+  border-style: dashed;
+  border-color: #222;
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: default;
+}
+
+.arch-stream-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.92rem;
+  color: var(--accent-color);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.46rem;
+}
+
+.arch-stream-card.locked .arch-stream-name {
+  color: #444;
+}
+
+.arch-stream-desc {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.55;
+  margin-bottom: 0.62rem;
+}
+
+.arch-stream-count {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  color: #555;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.arch-stream-card:not(.locked) .arch-stream-count {
+  color: #666;
+}
+
+/* === Email signup block ================================================ */
+.arch-access-signup {
+  border: 1px solid #222;
+  border-radius: 4px;
+  padding: 1.34rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.arch-signup-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.72rem;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+.arch-signup-text {
+  font-size: 0.88rem;
+  color: #666;
+}
+
+.arch-signup-link {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.72rem;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  padding: 0.5rem 1.1rem;
+  border-radius: 2px;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
+}
+
+.arch-signup-link:hover {
+  background: var(--accent-color);
+  color: #000;
+}
+
+/* === Dossier index ===================================================== */
+.arch-index-body {
+  padding: 1.52rem 1.8rem;
+}
+
+.arch-index-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.arch-index-table th {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: #3d5a87;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left;
+  padding: 0 0.75rem 0.72rem 0;
+  border-bottom: 1px solid var(--navy-border);
+}
+
+.arch-index-table td {
+  padding: 0.72rem 0.75rem 0.72rem 0;
+  border-bottom: 1px solid #111;
+  vertical-align: middle;
+}
+
+.arch-index-table tr:last-child td {
+  border-bottom: none;
+}
+
+.arch-index-name a {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.84rem;
+  color: var(--accent-color);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.arch-index-name a:hover {
+  color: #85c5ff;
+}
+
+.arch-index-role {
+  font-size: 0.86rem;
+  color: #666;
+}
+
+.arch-index-status {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.arch-index-status.active   { color: var(--accent-color); }
+.arch-index-status.flagged  { color: var(--gold); }
+.arch-index-status.external { color: #555; }
+
+.arch-index-flag {
+  display: block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  padding: 1px 5px;
+  border: 1px solid rgba(201,168,76,0.45);
+  color: rgba(201,168,76,0.65);
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-right: 0.26rem;
+  margin-top: 0.2rem;
+  width: fit-content;
+}
+
+/* === External record banner (Template 4) =============================== */
+.arch-external-banner {
+  background: #111;
+  border-bottom: 1px solid #222;
+  padding: 0.52rem 1.8rem;
+}
+
+.arch-external-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* === External record body ============================================== */
+.arch-external-body {
+  padding: 1.52rem 1.8rem;
+}
+
+.arch-ext-band-name {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.26rem;
+}
+
+.arch-ext-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem 2rem;
+  margin: 1.08rem 0;
+  padding: 1.08rem 0;
+  border-top: 1px solid #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.arch-ext-key {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.14rem;
+}
+
+.arch-ext-val {
+  font-size: 0.92rem;
+  color: #888;
+  line-height: 1.4;
+}
+
+.arch-ext-section-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.72rem;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 1.08rem 0 0.46rem;
+}
+
+.arch-ext-text {
+  font-size: 0.96rem;
+  color: #777;
+  line-height: 1.7;
+  margin-bottom: 0.72rem;
+}
+
+.arch-ext-source {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 1.5rem;
+  padding-top: 0.72rem;
+  border-top: 1px solid #1a1a1a;
+}
+
+/* === Responsive ======================================================== */
+@media (max-width: 768px) {
+  .arch-chrome,
+  .arch-hub-chrome {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .arch-meta-strip,
+  .arch-mismatch,
+  .arch-external-banner {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .arch-meta-strip {
+    gap: 1.3rem;
+  }
+
+  .arch-body,
+  .arch-hub-body,
+  .arch-index-body,
+  .arch-external-body {
+    padding: 1.08rem 1rem;
+  }
+
+  .arch-stream-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .arch-access-signup {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .arch-name      { font-size: 1.3rem; }
+  .arch-ship-name { font-size: 1.4rem; }
+
+  .arch-specimen-block {
+    grid-template-columns: 1fr;
+  }
+
+  .arch-ext-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .arch-index-table th:nth-child(3),
+  .arch-index-table td:nth-child(3) {
+    display: none;
+  }
+}
