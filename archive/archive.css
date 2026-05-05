@@ -1,10 +1,9 @@
-/* === Archive CSS Variables ============================================= */
+/* === Archive-specific variables (brand tokens live in styles.css) ====== */
 :root {
-  --gold: #c9a84c;
-  --coral: #c44a3a;
-  --navy-deep: #0a1020;
-  --navy-mid: #0f1520;
-  --navy-border: #1e2d4f;
+  --navy-deep: #0a1020;   /* archive main bg — darker than site --bg-color */
+  --navy-mid: #0f1520;    /* archive meta strip bg */
+  --subdued: #555555;     /* intentionally quiet chrome text: breadcrumbs, labels */
+  --faint: #333333;       /* structural separators, very-quiet decorative labels */
 }
 
 /* === Main layout override ============================================== */
@@ -19,7 +18,7 @@ main.arch-main {
 
 /* === Dossier page chrome (breadcrumb + file ID) ======================== */
 .arch-chrome {
-  background: #1a1a1a;
+  background: var(--surface);
   border-bottom: 2px solid var(--accent-color);
   padding: 1rem 1.8rem;
   display: flex;
@@ -31,13 +30,13 @@ main.arch-main {
 .arch-crumb {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.85rem;
-  color: #555;
+  color: var(--subdued);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .arch-crumb a {
-  color: #555;
+  color: var(--subdued);
   text-decoration: none;
 }
 
@@ -47,7 +46,7 @@ main.arch-main {
 
 .arch-crumb-sep {
   margin: 0 0.4em;
-  color: #333;
+  color: var(--faint);
 }
 
 .arch-crumb-current {
@@ -57,14 +56,14 @@ main.arch-main {
 .arch-file-id {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.8rem;
-  color: #444;
+  color: var(--border);
   letter-spacing: 0.06em;
   white-space: nowrap;
 }
 
 /* === Hub chrome (system status header) ================================= */
 .arch-hub-chrome {
-  background: #1a1a1a;
+  background: var(--surface);
   border-bottom: 2px solid var(--accent-color);
   padding: 1.2rem 1.8rem;
   display: flex;
@@ -77,7 +76,7 @@ main.arch-main {
 .arch-system-label {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.95rem;
-  color: #555;
+  color: var(--subdued);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -97,7 +96,7 @@ main.arch-main {
 /* === Meta strip ======================================================== */
 .arch-meta-strip {
   background: var(--navy-mid);
-  border-bottom: 1px solid var(--navy-border);
+  border-bottom: 1px solid var(--deep-navy);
   padding: 1.08rem 1.8rem;
   display: flex;
   gap: 2.7rem;
@@ -118,7 +117,7 @@ main.arch-main {
 .arch-meta-key {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.72rem;
-  color: #3d5a87;
+  color: var(--mid-blue);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.22rem;
@@ -144,7 +143,7 @@ main.arch-main {
 
 .arch-meta-val.strained {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--muted);
   font-style: italic;
 }
 
@@ -167,8 +166,8 @@ main.arch-main {
 }
 
 .arch-flag-badge.pending {
-  border-color: #555;
-  color: #555;
+  border-color: var(--subdued);
+  color: var(--subdued);
 }
 
 /* === Type mismatch notice (Template 2) ================================= */
@@ -217,7 +216,7 @@ main.arch-main {
   font-family: 'Noto Sans', sans-serif;
   font-weight: 200;
   font-size: 1.05rem;
-  color: #555;
+  color: var(--subdued);
   letter-spacing: 0.03em;
   margin-bottom: 0.14rem;
 }
@@ -225,7 +224,7 @@ main.arch-main {
 .arch-role {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.84rem;
-  color: #7b9ab8;
+  color: var(--slate);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 0.26rem;
@@ -233,7 +232,7 @@ main.arch-main {
 
 .arch-role-note {
   font-size: 0.96rem;
-  color: #555;
+  color: var(--subdued);
   font-style: italic;
   margin-bottom: 1.08rem;
   padding-bottom: 1.08rem;
@@ -267,7 +266,7 @@ main.arch-main {
 .arch-ship-class {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.84rem;
-  color: #555;
+  color: var(--subdued);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 1.18rem;
@@ -278,7 +277,7 @@ main.arch-main {
 /* === Bio =============================================================== */
 .arch-bio {
   font-size: 1.08rem;
-  color: #999;
+  color: var(--muted);
   line-height: 1.75;
   margin-bottom: 1.34rem;
 }
@@ -298,7 +297,7 @@ main.arch-main {
 .arch-specimen-label {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.68rem;
-  color: #333;
+  color: var(--faint);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   grid-column: 1 / -1;
@@ -308,7 +307,7 @@ main.arch-main {
 .arch-spec-key {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.68rem;
-  color: #444;
+  color: var(--border);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.14rem;
@@ -316,19 +315,19 @@ main.arch-main {
 
 .arch-spec-val {
   font-size: 0.93rem;
-  color: #777;
+  color: var(--muted);
   line-height: 1.4;
 }
 
 .arch-spec-val em {
-  color: #999;
+  color: var(--muted);
   font-style: normal;
 }
 
 /* === Children block (Template 3 — vessel) ============================== */
 .arch-children {
   background: #0d1825;
-  border: 1px solid var(--navy-border);
+  border: 1px solid var(--deep-navy);
   border-radius: 4px;
   padding: 1.08rem 1.34rem;
   margin-bottom: 1.18rem;
@@ -337,7 +336,7 @@ main.arch-main {
 .arch-children-label {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.75rem;
-  color: #3d5a87;
+  color: var(--mid-blue);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-bottom: 0.72rem;
@@ -359,14 +358,14 @@ main.arch-main {
 .arch-child-name {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.9rem;
-  color: #7b9ab8;
+  color: var(--slate);
   letter-spacing: 0.04em;
   flex: 0 0 120px;
 }
 
 .arch-child-desc {
   font-size: 0.9rem;
-  color: #555;
+  color: var(--subdued);
   flex: 1;
 }
 
@@ -486,7 +485,7 @@ main.arch-main {
 .arch-hub-crumb {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.75rem;
-  color: #555;
+  color: var(--subdued);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -533,12 +532,12 @@ main.arch-main {
 }
 
 .arch-stream-card.locked .arch-stream-name {
-  color: #444;
+  color: var(--border);
 }
 
 .arch-stream-desc {
   font-size: 0.88rem;
-  color: #666;
+  color: var(--muted);
   line-height: 1.55;
   margin-bottom: 0.62rem;
 }
@@ -546,13 +545,13 @@ main.arch-main {
 .arch-stream-count {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.68rem;
-  color: #555;
+  color: var(--subdued);
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .arch-stream-card:not(.locked) .arch-stream-count {
-  color: #666;
+  color: var(--muted);
 }
 
 /* === Email signup block ================================================ */
@@ -570,7 +569,7 @@ main.arch-main {
 .arch-signup-label {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.72rem;
-  color: #444;
+  color: var(--border);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.3rem;
@@ -578,7 +577,7 @@ main.arch-main {
 
 .arch-signup-text {
   font-size: 0.88rem;
-  color: #666;
+  color: var(--muted);
 }
 
 .arch-signup-link {
@@ -613,12 +612,12 @@ main.arch-main {
 .arch-index-table th {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.65rem;
-  color: #3d5a87;
+  color: var(--mid-blue);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-align: left;
   padding: 0 0.75rem 0.72rem 0;
-  border-bottom: 1px solid var(--navy-border);
+  border-bottom: 1px solid var(--deep-navy);
 }
 
 .arch-index-table td {
@@ -640,12 +639,12 @@ main.arch-main {
 }
 
 .arch-index-name a:hover {
-  color: #85c5ff;
+  color: var(--accent-hover);
 }
 
 .arch-index-role {
   font-size: 0.86rem;
-  color: #666;
+  color: var(--muted);
 }
 
 .arch-index-status {
@@ -658,7 +657,7 @@ main.arch-main {
 
 .arch-index-status.active   { color: var(--accent-color); }
 .arch-index-status.flagged  { color: var(--gold); }
-.arch-index-status.external { color: #555; }
+.arch-index-status.external { color: var(--subdued); }
 
 .arch-index-flag {
   display: block;
@@ -685,7 +684,7 @@ main.arch-main {
 .arch-external-label {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.68rem;
-  color: #444;
+  color: var(--border);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -717,7 +716,7 @@ main.arch-main {
 .arch-ext-key {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.68rem;
-  color: #444;
+  color: var(--border);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 0.14rem;
@@ -725,14 +724,14 @@ main.arch-main {
 
 .arch-ext-val {
   font-size: 0.92rem;
-  color: #888;
+  color: var(--muted);
   line-height: 1.4;
 }
 
 .arch-ext-section-label {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.72rem;
-  color: #444;
+  color: var(--border);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin: 1.08rem 0 0.46rem;
@@ -740,7 +739,7 @@ main.arch-main {
 
 .arch-ext-text {
   font-size: 0.96rem;
-  color: #777;
+  color: var(--muted);
   line-height: 1.7;
   margin-bottom: 0.72rem;
 }
@@ -748,12 +747,12 @@ main.arch-main {
 .arch-ext-source {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.65rem;
-  color: #333;
+  color: var(--faint);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-top: 1.5rem;
   padding-top: 0.72rem;
-  border-top: 1px solid #1a1a1a;
+  border-top: 1px solid var(--surface);
 }
 
 /* === Responsive ======================================================== */
