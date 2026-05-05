@@ -1,8 +1,50 @@
 :root {
+  /* Primary */
   --bg-color: #0c0c0c;
+  --surface: #1a1a1a;
   --text-color: #e6e6e6;
   --accent-color: #3b9eea;
+  --accent-hover: #85c5ff;
+
+  /* Secondary — cover-derived */
+  --deep-navy: #1e2d4f;
+  --mid-blue: #3d5a87;
+  --slate: #7b9ab8;
+
+  /* Tertiary — warm accents */
+  --gold: #c9a84c;
+  --coral: #c44a3a;
+
+  /* Utility */
+  --muted: #999999;
+  --footer-gray: #666666;
+  --border: #444444;
+
   --max-width: 960px;
+}
+
+@font-face {
+  font-family: 'Eurostile Next';
+  src: url('assets/fonts/EurostileNextLTPro-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Eurostile Next';
+  src: url('assets/fonts/EurostileNextLTPro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Eurostile Next';
+  src: url('assets/fonts/EurostileNextLTPro-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {
@@ -23,6 +65,12 @@ h1, h2, h3, nav, .logo-text, .button-like {
   font-family: 'Orbitron', sans-serif;
 }
 
+.site-title,
+.site-title a,
+.site-title-line {
+  font-family: 'Eurostile Next', "Eurostile", "Eurostile LT Std", "Eurostile Extended", "Microgramma D Extended", "Orbitron", sans-serif;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -31,18 +79,30 @@ header {
   background: #1a1a1a;
 }
 
-header img.logo {
-  max-width: 260px;
-  width: 100%;
-  margin-bottom: 1.5rem;
+.site-title {
+  width: min(23.5rem, 86vw);
+  margin: 0 0 1.15rem;
   opacity: 0;
   animation: fadeIn 1.2s ease-in-out forwards;
+}
+
+.site-title a {
+  display: inline-block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.site-title img.logo {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 header p {
   font-size: 1.1rem;
   color: var(--accent-color);
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 header.modal-header {
@@ -298,6 +358,43 @@ body.effect-pulse .cover-img.cover-animated::after {
   line-height: 1.75;
 }
 
+.details-band {
+  background: rgba(30, 45, 79, 0.4);
+  border-top: 1px solid rgba(59, 158, 234, 0.25);
+  border-bottom: 1px solid rgba(59, 158, 234, 0.25);
+}
+
+.details-bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 0.9rem 1.25rem;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+.detail-item {
+  min-width: 0;
+}
+
+.detail-spacer {
+  min-width: 0;
+}
+
+.detail-label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #7b9ab8;
+  margin-bottom: 0.2rem;
+}
+
+.detail-value {
+  font-size: 0.92rem;
+  color: var(--text-color);
+}
+
 @keyframes fadeIn {
   to {
     opacity: 1;
@@ -364,6 +461,43 @@ body.modal-open {
   color: #999;
 }
 
+.bio-content p + p {
+  margin-top: 1rem;
+}
+
+.club-main {
+  opacity: 1;
+  animation: none;
+}
+
+.club-intro h1,
+.club-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #999;
+}
+
+.club-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.club-section {
+  max-width: min(760px, calc(100% - 2rem));
+}
+
+.club-questions {
+  padding-left: 1.35rem;
+  color: #999;
+}
+
+.club-questions li {
+  line-height: 1.75;
+}
+
+.club-questions li + li {
+  margin-top: 0.95rem;
+}
+
 .cover-caption {
   font-size: 0.85rem;
   font-style: italic;
@@ -420,6 +554,11 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .site-title {
+    width: min(20rem, 92vw);
+    margin-bottom: 1rem;
+  }
+
   .modal-content {
     width: 100vw;
     height: 100vh;
@@ -431,6 +570,15 @@ footer {
   main {
     flex-direction: column;
     align-items: center;
+  }
+
+  .details-bar {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .detail-spacer {
+    display: none;
   }
 
   nav {
@@ -447,6 +595,10 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .details-bar {
+    padding: 0.85rem 1rem;
+  }
+
   .retailer-links {
     flex-direction: column;
   }
